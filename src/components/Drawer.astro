@@ -22,8 +22,6 @@ const { links } = Astro.props;
                 <Image src={CloseIcon} alt='Close Icon'/>
             </button>
         </div>
-
-        <ChangeSelect isHidden={false} client:visible/>
         
         <ul class="flex flex-col h-screen gap-4 items-center justify-center">
             {
@@ -36,6 +34,8 @@ const { links } = Astro.props;
                 ))
             }
         </ul>
+
+        <ChangeSelect isHidden={false} client:visible/>
     </div>
 </Fragment>
 

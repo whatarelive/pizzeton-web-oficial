@@ -8,8 +8,8 @@ interface Props {
 }
 
 export default function ChangeSelect({ isHidden }: Props) {
-  const id = useId();
   const { moneda } = useStore(changeStore);
+  const id = useId();
   
   const onChange = async(event :React.ChangeEvent<HTMLSelectElement>) => {
     event.preventDefault();
@@ -23,17 +23,18 @@ export default function ChangeSelect({ isHidden }: Props) {
 
   return (
     <div className={`${!isHidden ? 'flex' : 'hidden'} lg:flex p-2 g-4`}>
-      <label htmlFor={id}
-        className="text-white px-4 font-medium"
-      >
+      <label htmlFor={id} className="text-white px-4 font-medium">
         Moneda
       </label>
       
-      <select id={id} onChange={onChange}>
-        <option value="CUP">CUP</option>
-        <option value="EUR">EUR</option>
-        <option value="USD">USD</option>
-        <option value="MLC">MLC</option>
+      <select id={id} onChange={onChange} className="w-14 rounded-md font-semibold">
+        {
+          ['CUP', 'EUR', 'USD', 'MLC'].map(op => (
+            <option key={op} value={op} className={`${op === moneda && 'hidden'} font-medium`}>
+              {op}
+            </option>
+          ))
+        }
       </select>
     </div>
   )

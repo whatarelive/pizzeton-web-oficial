@@ -1,23 +1,9 @@
 ---
-import Demo from "@/components/react/Demo";
 import PageLayout from "@/layouts/PageLayout.astro";
 ---
 
 <PageLayout>
 	<main>
-		<table>
-			<thead class="border">
-				<th class="border">EUR</th>
-				<th class="border">USD</th>
-				<th class="border">MLC</th>
-			</thead>
-			<tbody class="border">
-				<tr>
-					<Demo price={750} client:visible/>
-					<Demo price={1050} client:visible/>
-					<Demo price={1750} client:visible/>
-				</tr>
-			</tbody>
-		</table>
+		
 	</main>
 </PageLayout>
