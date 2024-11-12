@@ -1,9 +1,30 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro";
+
+import HeroView from "@/views/HeroView.astro";
+import CardsView from "@/views/CardsView.astro";
+
+import ProductCard from "@/components/ProductCard.astro";
+import EventCard from "@/components/EventCard.astro";
+
+import dataEvents from "@/data/events.json";
+import dataProducts from "@/data/poducts.json";
+
+const products = dataProducts.slice(0, 3);
 ---
 
 <PageLayout>
-	<main>
+	<main class="relative top-[78px] h-screen">
+		<HeroView/>
+		
+		<CardsView title="Pizzas Destacadas">
+			{ products.map((p) => <ProductCard product={p}/>) }
+		</CardsView>
+
+		<CardsView title="Eventos Especiales" bgView="bg-thertiary">
+			{ dataEvents.map((e) => <EventCard event={e}/>) }
+		</CardsView>
+
 		
 	</main>
 </PageLayout>

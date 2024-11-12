@@ -1,0 +1,25 @@
+---
+import type { Event } from '@/interfaces';
+
+interface Props {
+    event: Event;
+}
+
+const { event } = Astro.props;
+const { img, title, subtitle } = event;
+---
+
+<article class={`flex flex-col-reverse max-w-64  bg-base rounded-xl`}>
+    <img src={img} alt={`Imagen de la ${title}`} 
+        class="rounded-es-xl rounded-ee-xl h-36"
+    />
+    
+    <div class="flex flex-col justify-center items-center gap-3 p-6">
+        <h6 class="text-white text-lg font-semibold">
+            {title}
+        </h6>
+        <p class="text-white text-opacity-60 font-light text-sm text-center">
+            {subtitle}
+        </p>
+    </div>
+</article>

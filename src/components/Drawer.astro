@@ -16,7 +16,7 @@ const { links } = Astro.props;
         <Image src={HamburgueIcon} alt="Hamburgue Icon"/>
     </button>
     
-    <div id="drawer" class="hidden absolute top-0 right-0 h-screen w-9/12 p-6 bg-base">
+    <div id="drawer" class="hidden fixed flex-col h-screen top-0 right-0 w-9/12 p-6 bg-base">
         <div class="flex justify-end">
             <button id="close">
                 <Image src={CloseIcon} alt='Close Icon'/>
@@ -45,10 +45,10 @@ const { links } = Astro.props;
     const drawer = document.getElementById('drawer');
 
     buttonOpen?.addEventListener('click', () => {
-        drawer?.classList.replace('hidden', 'block');
+        drawer?.classList.replace('hidden', 'flex');
     });
 
     buttonClose?.addEventListener('click', () => {
-        drawer?.classList.replace('block', 'hidden');
+        drawer?.classList.replace('flex', 'hidden');
     });
 </script>

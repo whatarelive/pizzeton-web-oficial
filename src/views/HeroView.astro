@@ -1,0 +1,31 @@
+<section>
+    <div class="flex flex-col h-screen gap-8 px-4 py-[160px] items-center justify-center bg-black bg-opacity-45">
+        <div class="gap-2">
+            <h1 class="title">Pizzeria</h1>
+            <h2 class="title">El Pizzeton D'Guti</h2>
+            
+            <p class="text-white text-center text-opacity-75">
+                Descubre el auténtico sabor en cada bocado
+            </p>
+        </div>
+
+        <a href="#menú" class="btn">Ver Menú</a>
+    </div>
+</section>
+
+<style>
+    section {
+        height: 100vh;
+        background-image: url('/src/assets/images/background-hero.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: center;
+    }
+    .title {
+        @apply text-title text-center font-semibold text-white
+    }
+    .btn {
+        @apply px-3 py-2 rounded-lg bg-white font-medium border-2 hover:animate-scale hover:shadow-2xl
+        hover:bg-[#1E1E1E] hover:bg-opacity-85 hover:text-white hover:border-gray-300
+    }
+</style>
