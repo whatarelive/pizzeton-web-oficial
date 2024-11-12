@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import ChangeSelect from "@/components/react/ChangeSelect";
+import HamburgueIcon from '@/assets/svg/openIcon.svg';
+import CloseIcon from '@/assets/svg/closeIcon.svg';
+
+interface Props {
+    links: string[];
+}
+
+const { links } = Astro.props;
+---
+
+<Fragment>
+    <button id="open" class="lg:hidden">
+        <Image src={HamburgueIcon} alt="Hamburgue Icon"/>
+    </button>
+    
+    <div id="drawer" class="hidden absolute top-0 right-0 h-screen w-9/12 p-6 bg-base">
+        <div class="flex justify-end">
+            <button id="close">
+                <Image src={CloseIcon} alt='Close Icon'/>
+            </button>
+        </div>
+
+        <ChangeSelect isHidden={false} client:visible/>
+        
+        <ul class="flex flex-col h-screen gap-4 items-center justify-center">
+            {
+                links.map(link => (
+                    <li class="max-w-fit font-semibold text-white text-opacity-70">
+                        <a href={`#${link.toLowerCase()}`}>
+                            {link}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</Fragment>
+
+<script>
+    const buttonOpen = document.getElementById('open');
+    const buttonClose = document.getElementById('close');
+    const drawer = document.getElementById('drawer');
+
+    buttonOpen?.addEventListener('click', () => {
+        drawer?.classList.replace('hidden', 'block');
+    });
+
+    buttonClose?.addEventListener('click', () => {
+        drawer?.classList.replace('block', 'hidden');
+    });
+</script>

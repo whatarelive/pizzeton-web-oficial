@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import Drawer from "@/components/Drawer.astro";
+import ChangeSelect from "@/components/react/ChangeSelect";
+import Logo from "@/assets/svg/logo.svg";
+
+const links = ['Menú', 'Galería', 'Eventos', 'Sobre Nosotros', 'Ubicación'];
+---
+
+<header class="flex flex-row sticky lg:gap-8 p-6 lg:px-8 lg:py-4 justify-between items-center bg-primary">
+    <div class="flex flex-row gap-3">
+        <Image src={Logo} alt='Logo'/>
+
+        <span class="hidden lg:inline font-semibold text-2xl text-white">
+            Pizzeton D'Guti
+        </span>
+    </div>
+
+    <nav class="hidden lg:flex flex-1 gap-2 justify-end ">   
+        {
+            links.map(link => (
+                <a class="p-2 text-white hover:bg-base hover:rounded-lg"
+                    href={`#${link.toLowerCase().replace(' ', '')}`} 
+                >
+                    {link}
+                </a>
+            ))
+        }
+    </nav>
+
+    <ChangeSelect isHidden={true} client:visible/>
+        
+    <Drawer links={links}/>
+</header>
