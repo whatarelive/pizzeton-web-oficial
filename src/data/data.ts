@@ -183,3 +183,10 @@ export const desserts: ProductNoSub[] = [{
     title: "Canoa de Helado",
     price: 652.00
 }];
+
+export const menu = {
+    Pizzas: pizzas,
+    Pastas: pastas,
+    Bebidas: drinks,
+    Postres: desserts,
+}

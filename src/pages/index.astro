@@ -3,10 +3,12 @@ import PageLayout from "@/layouts/PageLayout.astro";
 import CardsLayout from "@/layouts/CardsLayout.astro";
 
 import HeroView from "@/views/HeroView.astro";
+import InfoView from "@/views/InfoView.astro";
 
 import ProductCard from "@/components/ProductCard.astro";
 import EventCard from "@/components/EventCard.astro";
 import TeamCard from "@/components/TeamCard.astro";
+import MenuTabs from "@/components/react/MenuTabs";
 
 import { pizzas, events, team } from "@/data/data";
 
@@ -14,12 +16,20 @@ const $pizzas = pizzas.slice(0, 3);
 ---
 
 <PageLayout>
-	<main class="relative top-[78px] h-screen">
+	<main class="relative top-[78px]">
 		<HeroView/>
 		
 		<CardsLayout title="Pizzas Destacadas">
 			{ $pizzas.map((p) => <ProductCard product={p}/>) }
 		</CardsLayout>
+
+		<section class="flex flex-col items-center px-6 py-12 gap-8 bg-primary">
+			<h3 class="text-white text-xl font-semibold">
+				Menú Completo
+			</h3>
+
+			<MenuTabs client:visible/>
+		</section>
 
 		<CardsLayout title="Eventos Especiales" bgView="bg-thertiary">
 			{ events.map((e) => <EventCard event={e}/>) }
@@ -27,10 +37,14 @@ const $pizzas = pizzas.slice(0, 3);
 
 		<CardsLayout title="Sobre Nosotros" bgView="bg-thertiary">
 			<p class="mt-8 text-white text-center font-light text-opacity-50" slot="description">
-				En la Pizzería <b>El Pizzeton D'Guti</b>, nos apasiona crear las mejores pizzas artesanales utilizando ingredientes frescos y locales. Nuestras técnicas modernas y pasión se combinan para ofrecerte una experiencia culinaria única.
+				En la Pizzería <b>El Pizzeton D'Guti</b>, nos apasiona crear las mejores pizzas 
+				artesanales utilizando ingredientes frescos y locales. Nuestras técnicas modernas 
+				y pasión se combinan para ofrecerte una experiencia culinaria única.
 			</p>
 
 			{ team.map((t) => <TeamCard teamMember={t}/>) }
 		</CardsLayout>
+
+		<InfoView/>
 	</main>
 </PageLayout>

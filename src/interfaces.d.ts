@@ -12,5 +12,10 @@ export interface TeamMember {
     bio: string;
 }
 
+interface MenuProduct extends ProductNoSub {
+    subtitle?: string;
+}
+
 export type ProductNoSub = Omit<Product, 'subtitle'>
 export type Event = Omit<Product, 'price'>;
+export type Menu = 'Pizzas' | 'Pastas' | 'Bebidas' | 'Postres';

@@ -1,4 +1,5 @@
 ---
+import Footer from '@/components/Footer.astro';
 import NavBar from '@/components/NavBar.astro';
 
 import '@/styles/global.css';
@@ -16,6 +17,9 @@ import '@/styles/global.css';
 	</head>
 	<body>
 		<NavBar/>
+		
 		<slot />
+
+		<Footer/>
 	</body>
 </html>
