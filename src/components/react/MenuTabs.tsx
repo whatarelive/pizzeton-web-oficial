@@ -22,7 +22,7 @@ export default function MenuTabs() {
                         key={label} 
                         onClick={handleClick}
                         className={`
-                            ${selectTab === label && 'bg-white text-primary text-opacity-100'}
+                            ${selectTab === label && 'bg-white text-black text-opacity-100'}
                             text-white text-opacity-80 rounded-lg px-2 py-1 text-sm font-semibold
                         `}
                     >

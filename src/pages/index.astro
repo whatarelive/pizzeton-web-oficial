@@ -11,6 +11,7 @@ import TeamCard from "@/components/TeamCard.astro";
 import MenuTabs from "@/components/react/MenuTabs";
 
 import { pizzas, events, team } from "@/data/data";
+import Ubication from "@/views/Ubication.astro";
 
 const $pizzas = pizzas.slice(0, 3);
 ---
@@ -23,7 +24,7 @@ const $pizzas = pizzas.slice(0, 3);
 			{ $pizzas.map((p) => <ProductCard product={p}/>) }
 		</CardsLayout>
 
-		<section class="flex flex-col items-center px-6 py-12 gap-8 bg-primary">
+		<section id="menú" class="flex flex-col items-center px-6 py-12 gap-8 bg-primary">
 			<h3 class="text-white text-xl font-semibold">
 				Menú Completo
 			</h3>
@@ -31,11 +32,11 @@ const $pizzas = pizzas.slice(0, 3);
 			<MenuTabs client:visible/>
 		</section>
 
-		<CardsLayout title="Eventos Especiales" bgView="bg-thertiary">
+		<CardsLayout id="eventos" title="Eventos Especiales" bgView="bg-thertiary">
 			{ events.map((e) => <EventCard event={e}/>) }
 		</CardsLayout>
 
-		<CardsLayout title="Sobre Nosotros" bgView="bg-thertiary">
+		<CardsLayout id="sobre nosotros" title="Sobre Nosotros" bgView="bg-thertiary">
 			<p class="mt-8 text-white text-center font-light text-opacity-50" slot="description">
 				En la Pizzería <b>El Pizzeton D'Guti</b>, nos apasiona crear las mejores pizzas 
 				artesanales utilizando ingredientes frescos y locales. Nuestras técnicas modernas 
@@ -44,6 +45,8 @@ const $pizzas = pizzas.slice(0, 3);
 
 			{ team.map((t) => <TeamCard teamMember={t}/>) }
 		</CardsLayout>
+
+		<Ubication/>
 
 		<InfoView/>
 	</main>
