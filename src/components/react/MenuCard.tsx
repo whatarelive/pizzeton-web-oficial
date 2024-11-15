@@ -10,7 +10,7 @@ export default function MenuCard({product}: Props) {
 
   return (
     <article className="flex flex-col border-b-[1px] gap-2 py-2 justify-between border-base">
-        <img src={img} alt={`Imagen de la ${title}`} className='hidden lg:block'/>
+        <img src={img} alt={`Imagen de la ${title}`} className='hidden'/>
         
         <div className="flex justify-between">
             <h6 className='text-white font-semibold'>
