@@ -15,15 +15,15 @@ export default function MenuTabs() {
 
   return (
     <>
-        <div className="flex gap-2">
+        <div className="flex w-full justify-start gap-2">
             { 
                 buttons.map(label => (
                     <button 
                         key={label} 
                         onClick={handleClick}
                         className={`
-                            text-white text-opacity-80 rounded-lg px-2 py-1 text-sm font-semibold
-                            ${selectTab === label && 'bg-white text-primary text-opacity-100'}
+                            rounded-lg px-2 py-1 text-sm font-semibold
+                            ${selectTab === label ? 'text-primary bg-white' : 'text-white text-opacity-80'}
                         `}
                     >
                         { label }

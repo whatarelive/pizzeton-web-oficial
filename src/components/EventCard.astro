@@ -9,9 +9,9 @@ const { event } = Astro.props;
 const { img, title, subtitle } = event;
 ---
 
-<article class={`flex flex-col-reverse max-w-64  bg-base rounded-xl`}>
+<article class={`flex flex-col-reverse md:flex-row-reverse bg-base rounded-xl`}>
     <img src={img} alt={`Imagen de la ${title}`} 
-        class="rounded-es-xl rounded-ee-xl h-36"
+        class="rounded-es-xl rounded-ee-xl h-36 md:h-52"
     />
     
     <div class="flex flex-col justify-center items-center gap-3 p-6">
