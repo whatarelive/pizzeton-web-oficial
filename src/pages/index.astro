@@ -12,6 +12,8 @@ import MenuTabs from "@/components/react/MenuTabs";
 
 import { pizzas, events, team } from "@/data/data";
 import Ubication from "@/views/Ubication.astro";
+import GaleryView from "@/views/GaleryView.astro";
+import OpinionView from "@/views/OpinionView.astro";
 
 const $pizzas = pizzas.slice(0, 3);
 ---
@@ -19,6 +21,8 @@ const $pizzas = pizzas.slice(0, 3);
 <PageLayout>
 	<main class="relative top-[78px]">
 		<HeroView/>
+
+		<GaleryView/>
 		
 		<CardsLayout title="Pizzas Destacadas">
 			{ $pizzas.map((p) => <ProductCard product={p}/>) }
@@ -35,6 +39,8 @@ const $pizzas = pizzas.slice(0, 3);
 		<CardsLayout id="eventos" title="Eventos Especiales" bgView="bg-thertiary">
 			{ events.map((e) => <EventCard event={e}/>) }
 		</CardsLayout>
+
+		<!-- <OpinionView/> -->
 
 		<CardsLayout id="sobre nosotros" title="Sobre Nosotros" bgView="bg-thertiary">
 			<p class="mt-8 text-white text-center font-light text-opacity-50" slot="description">

@@ -1,15 +1,13 @@
 ---
-import { Image } from "astro:assets";
 import Drawer from "@/components/Drawer.astro";
 import ChangeSelect from "@/components/react/ChangeSelect";
-import Logo from "@/assets/svg/logo.svg";
 
 const links = ['Menú', 'Eventos', 'Sobre Nosotros', 'Ubicación'];
 ---
 
 <header class="fixed z-50 min-w-full flex flex-row lg:gap-8 p-6 lg:px-8 lg:py-4 justify-between items-center bg-primary">
     <div class="flex flex-row gap-3">
-        <Image src={Logo} alt='Logo'/>
+        <img src="/svg/logo.svg" alt='Logo'/>
 
         <span class="hidden lg:inline font-semibold text-2xl text-white">
             Pizzeton D'Guti

@@ -1,8 +1,6 @@
 ---
-import { Image } from 'astro:assets';
+import { IoMenu, IoClose } from "react-icons/io5";
 import ChangeSelect from "@/components/react/ChangeSelect";
-import HamburgueIcon from '@/assets/svg/openIcon.svg';
-import CloseIcon from '@/assets/svg/closeIcon.svg';
 
 interface Props {
     links: string[];
@@ -13,13 +11,13 @@ const { links } = Astro.props;
 
 <Fragment>
     <button id="open" class="lg:hidden">
-        <Image src={HamburgueIcon} alt="Hamburgue Icon"/>
+        <IoMenu className='w-9 h-9' color="#ffffff" />
     </button>
     
     <div id="drawer" class="hidden fixed flex-col h-full top-0 right-0 w-9/12 p-6 bg-base">
         <div class="flex justify-end">
             <button id="close">
-                <Image src={CloseIcon} alt='Close Icon'/>
+                <IoClose className='w-9 h-9' color="#ffffff"/>
             </button>
         </div>
         
