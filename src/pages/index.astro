@@ -4,16 +4,17 @@ import CardsLayout from "@/layouts/CardsLayout.astro";
 
 import HeroView from "@/views/HeroView.astro";
 import InfoView from "@/views/InfoView.astro";
+import Ubication from "@/views/Ubication.astro";
+import GaleryView from "@/views/GaleryView.astro";
+import OpinionView from "@/views/OpinionView.astro";
 
 import ProductCard from "@/components/ProductCard.astro";
 import EventCard from "@/components/EventCard.astro";
 import TeamCard from "@/components/TeamCard.astro";
 import MenuTabs from "@/components/react/MenuTabs";
+import CarouselText from "@/components/react/CarouselText";
 
 import { pizzas, events, team } from "@/data/data";
-import Ubication from "@/views/Ubication.astro";
-import GaleryView from "@/views/GaleryView.astro";
-import OpinionView from "@/views/OpinionView.astro";
 
 const $pizzas = pizzas.slice(0, 3);
 ---
@@ -21,6 +22,14 @@ const $pizzas = pizzas.slice(0, 3);
 <PageLayout>
 	<main class="relative top-[78px]">
 		<HeroView/>
+
+		<section class="flex flex-col gap-8 px-6 py-12">
+			<h4 class="font-semibold text-xl text-center">
+				Nuestras Especialidades
+			</h4>
+		
+			<CarouselText client:visible/>
+		</section>
 
 		<GaleryView/>
 		

@@ -15,5 +15,5 @@ export default function ProductPrice({ price }: Props) {
       setFinish(change);
     }, [value]);
 
-  return <span className="text-white font-semibold">{`$ ${finish}`}</span>
+  return <strong>{`$ ${finish}`}</strong>
 }

@@ -190,3 +190,19 @@ export const menu = {
     Bebidas: drinks,
     Postres: desserts,
 }
+
+export const especialities = [{
+    img: '/pizza2.jpeg',
+    title: 'Pizza Estrella',
+    description: 'Nuestra Pizza Estrella es un homenaje a la tradición italiana. Con una base de salsa de tomate San Marzano, mozzarella fresca de búfala, hojas de albahaca recién cortadas y un chorrito de aceite de oliva extra virgen. La simplicidad en su máxima expresión.'
+},
+{
+    img: '/pizza.jpeg',
+    title: 'Pizza Vegetariana',
+    description: 'Nuestra Pizza Vegetariana es un homenaje a la tradición italiana. Con una base de salsa de tomate San Marzano, mozzarella fresca de búfala, hojas de albahaca recién cortadas y un chorrito de aceite de oliva extra virgen. La simplicidad en su máxima expresión.'
+},
+{
+    img: '/pizza3.jpeg',
+    title: 'Foacacia de Nutela',
+    description: 'Nuestra Foacacia de Nutela es un homenaje a la tradición italiana. Con una base de salsa de tomate San Marzano, mozzarella fresca de búfala, hojas de albahaca recién cortadas y un chorrito de aceite de oliva extra virgen. La simplicidad en su máxima expresión.'
+}];
