@@ -1,12 +1,11 @@
 ---
 import Footer from '@/components/Footer.astro';
 import NavBar from '@/components/NavBar.astro';
-
-import '@/styles/global.css';
+import "@fontsource-variable/inter";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -23,3 +22,10 @@ import '@/styles/global.css';
 		<Footer/>
 	</body>
 </html>
+<style>
+	html{
+		font-family: 'Inter Variable', Inter, serif;
+		background-color: #444444;
+		color: #ffffff;
+	}
+</style>

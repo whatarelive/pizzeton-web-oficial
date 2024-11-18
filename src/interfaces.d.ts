@@ -12,6 +12,12 @@ export interface TeamMember {
     bio: string;
 }
 
+export interface Opinion {
+    user: string;
+    description: string;
+    valoration: number;
+}
+
 interface MenuProduct extends ProductNoSub {
     subtitle?: string;
 }

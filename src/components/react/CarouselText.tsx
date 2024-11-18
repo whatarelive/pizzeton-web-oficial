@@ -10,7 +10,7 @@ export default function CarouselText() {
         <img 
             src={especialities[selectedIndex].img} 
             alt={`Image`} 
-            className="rounded-3xl min-h-52 max-h-64"
+            className="rounded-3xl h-64"
         />
 
         <div className="flex flex-col gap-2">

@@ -1,28 +1,42 @@
 ---
-
+import OpinionsList from "@/components/OpinionsList.astro";
+import ValorationSelect from "@/components/react/ValorationSelect";
 ---
 
-<section>
-    <div>
+<section class="flex flex-col gap-8 px-6 py-12">
+    <h3 class="text-xl font-semibold text-center">
+         Reseñas de los Clientes
+    </h3>
 
-    </div>
+    <OpinionsList/> 
 
-    <div>
-        <h5>
-
+    <div class="flex flex-col items-center gap-4">
+        <h5 class="text-xl font-semibold">
+            Deja tu Opinión
         </h5>
 
-        <form action="">
-            <input type="text" placeholder="Nombre Completo">
-            <input type="tel" placeholder="Numero de Telefono">
-            <select>
-                {
-                    [1, 2, 3, 4, 5].map(v => (
-                        <option value={v}>{v}</option>
-                    ))
-                }
-            </select>
-            <input type="text" placeholder="Opinion">
+        <form action="" class="flex flex-col gap-3 p-3">
+            <label title="Nombre Completo" for="nombre">
+                <input id="nombre" type="text" placeholder="Nombre Completo" class="input" />
+            </label>
+            <label title="Número de Telefono" for="telefono">
+                <input id="telefono" type="tel" placeholder="Número de Telefono" class="input"/>
+            </label>
+            <ValorationSelect client:visible/>
+            <label title="Opinión" for="opinion">
+                <textarea id="opinion" placeholder="Opinión (150 carácteres)" maxlength="150" class="input h-24 w-full"/>
+            </label>
+
+            <button type="submit" class="py-3 bg-white text-primary font-semibold rounded-lg">
+                Enviar Opinión
+            </button>
         </form>
     </div>
 </section>
+<style>
+    .input {
+        @apply px-4 py-3 rounded-lg bg-primary stroke-white
+        focus:outline-none focus:ring-2 focus:ring-blue-500 
+        placeholder:text-slate-300 placeholder:text-opacity-80
+    }
+</style>

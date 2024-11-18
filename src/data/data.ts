@@ -1,4 +1,4 @@
-import type { Product, ProductNoSub, Event, TeamMember } from "@/interfaces";
+import type { Product, ProductNoSub, Event, TeamMember, Opinion } from "@/interfaces";
 
 export const team: TeamMember[] = [{
     img: "/Shape.png",
@@ -206,3 +206,19 @@ export const especialities = [{
     title: 'Foacacia de Nutela',
     description: 'Nuestra Foacacia de Nutela es un homenaje a la tradición italiana. Con una base de salsa de tomate San Marzano, mozzarella fresca de búfala, hojas de albahaca recién cortadas y un chorrito de aceite de oliva extra virgen. La simplicidad en su máxima expresión.'
 }];
+
+export const opinions: Opinion[] = [{
+    user: 'Jose Luis',
+    description: 'Muy buenas las pizzas, son las mejores que he probado',
+    valoration: 5
+},
+{
+    user: 'Macarena Lopez',
+    description: 'No estan malas las pizzas, pueden mejorar.',
+    valoration: 3
+},
+{
+    user: 'Jose Luis',
+    description: 'Muy buen servicio yu atención maravillosa.',
+    valoration: 4
+}]

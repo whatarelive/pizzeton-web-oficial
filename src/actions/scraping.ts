@@ -1,7 +1,7 @@
 import axios from "axios";
 import { load } from "cheerio";
 
-const monedas = ['EUR', 'USD', 'MLC'];
+const MONETISED = ['EUR', 'USD', 'MLC'];
 
 export async function scraping() {
     const { data } = await axios.get('https://eltoque.com/precio-del-dolar-en-el-mercado-informal-en-cuba-hoy');
@@ -14,7 +14,7 @@ export async function scraping() {
             .children('span').text()
             .replace('CUP', '').trim();
        
-        results[monedas[index]] = +item;        
+        results[MONETISED[index]] = +item;
     })
 
     return results;
