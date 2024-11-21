@@ -3,7 +3,7 @@ import ValorationRate from "./ValorationRate.astro";
 import { opinions } from "@/data/data";
 ---
 
-<ul class="container flex space-x-4 px-6 overflow-x-scroll md:overflow-hidden gap-8 pb-6">
+<ul class="container flex w-full space-x-2 px-6 overflow-x-scroll md:overflow-hidden gap-8 pb-6">
     {
         opinions.map(({ user, description, valoration }) => (
             <li class="flex flex-col items-center min-w-[272px] h-fit p-6 gap-4 bg-primary rounded-lg">
