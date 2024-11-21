@@ -221,4 +221,21 @@ export const opinions: Opinion[] = [{
     user: 'Jose Luis',
     description: 'Muy buen servicio yu atención maravillosa.',
     valoration: 4
-}]
+}];
+
+export const ubicationViewData = [{
+    label: "Como llegar:",
+    description: "Estamos ubicados en el corazón de la ciudad, fácilmente accesible por transporte público y con estacionamiento disponible."
+},
+{
+    label: "Dirección:",
+    description: "Calle Principal 123, Ciudad"
+},
+{
+    label: "Teléfono:",
+    description: "+53 53635566"
+},
+{
+    label: "Horario:",
+    description: "Abierto todos los días: 11:00 - 22:00"
+}];

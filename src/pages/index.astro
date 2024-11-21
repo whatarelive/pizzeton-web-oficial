@@ -4,30 +4,28 @@ import CardsLayout from "@/layouts/CardsLayout.astro";
 
 import HeroView from "@/views/HeroView.astro";
 import InfoView from "@/views/InfoView.astro";
-import Ubication from "@/views/Ubication.astro";
 import GaleryView from "@/views/GaleryView.astro";
 import OpinionView from "@/views/OpinionView.astro";
 
 import ProductCard from "@/components/ProductCard.astro";
 import EventCard from "@/components/EventCard.astro";
 import TeamCard from "@/components/TeamCard.astro";
+import UbicationItemInfo from "@/components/UbicationItemInfo.astro";
 import MenuTabs from "@/components/react/MenuTabs";
 import CarouselText from "@/components/react/CarouselText";
+import MapView from "@/components/react/MapView";
 
-import { pizzas, events, team } from "@/data/data";
+import { pizzas, events, team, ubicationViewData } from "@/data/data";
 
 const $pizzas = pizzas.slice(0, 3);
 ---
 
 <PageLayout>
-	<main class="relative top-[78px]">
+	<main class="relative top-[78px] 2xl:top-[70px]">
 		<HeroView/>
 
-		<section class="flex flex-col gap-8 px-6 py-12">
-			<h4 class="font-semibold text-xl text-center">
-				Nuestras Especialidades
-			</h4>
-		
+		<section class="section">
+			<h4>Nuestras Especialidades</h4>
 			<CarouselText client:visible/>
 		</section>
 
@@ -37,11 +35,8 @@ const $pizzas = pizzas.slice(0, 3);
 			{ $pizzas.map((p) => <ProductCard product={p}/>) }
 		</CardsLayout>
 
-		<section id="menú" class="flex flex-col items-center px-6 py-12 gap-8 bg-primary">
-			<h3 class="text-white text-xl font-semibold">
-				Menú Completo
-			</h3>
-
+		<section id="menú" class="section bg-primary">
+			<h3>Menú Completo</h3>
 			<MenuTabs client:visible/>
 		</section>
 
@@ -52,7 +47,7 @@ const $pizzas = pizzas.slice(0, 3);
 		<OpinionView/>
 
 		<CardsLayout id="sobre nosotros" title="Sobre Nosotros" bgView="bg-thertiary">
-			<p class="mt-8 text-white text-center font-light text-opacity-50" slot="description">
+			<p class="text-center" slot="description">
 				En la Pizzería <b>El Pizzeton D'Guti</b>, nos apasiona crear las mejores pizzas 
 				artesanales utilizando ingredientes frescos y locales. Nuestras técnicas modernas 
 				y pasión se combinan para ofrecerte una experiencia culinaria única.
@@ -61,7 +56,17 @@ const $pizzas = pizzas.slice(0, 3);
 			{ team.map((t) => <TeamCard teamMember={t}/>) }
 		</CardsLayout>
 
-		<Ubication/>
+		<CardsLayout id="ubicación" title="Ubicación">
+			<MapView client:only="react"/>
+
+			<div class="flex flex-col gap-3">
+				{
+					ubicationViewData.map(({label, description}) => (
+						<UbicationItemInfo label={label} description={description} />
+					))
+				}
+			</div>
+		</CardsLayout>
 
 		<InfoView/>
 	</main>

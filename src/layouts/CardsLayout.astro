@@ -8,14 +8,12 @@ interface Props {
 const { id, title, bgView } = Astro.props;
 ---
 
-<section id={id} class={`${bgView} px-6 py-12`}>
-    <h4 class="text-white text-xl text-center font-semibold">
-        {title}
-    </h4>
-    
+<section id={id} class={`section ${bgView}`}>
+    <h3>{ title }</h3>
+
     <slot name="description"/>
 
-    <div class="flex flex-col md:flex-row items-center mt-8 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 justify-items-center gap-6">
         <slot/>
     </div>
 </section>

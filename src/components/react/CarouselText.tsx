@@ -7,21 +7,21 @@ export default function CarouselText() {
 
   return (
     <>
-        <img 
-            src={especialities[selectedIndex].img} 
-            alt={`Image`} 
+        <img
+            src={ especialities[selectedIndex].img }
+            alt={`Image`}
             className="rounded-3xl h-64"
         />
 
         <div className="flex flex-col gap-2">
-            <h6 className="font-semibold">
-                {especialities[selectedIndex].title}
+            <h6 className="text-lg font-semibold">
+                { especialities[selectedIndex].title }
             </h6>
-            <p className="text-sm text-white text-opacity-70">
-                {especialities[selectedIndex].description}
+            <p>
+                { especialities[selectedIndex].description }
             </p>
         </div>
-        
+
         <div className="flex justify-around">
             <button className="rounded-full bg-thertiary p-2" onClick={previusSlide}>
                 <FaArrowLeft color="#ffffff"/>

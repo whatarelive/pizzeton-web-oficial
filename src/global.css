@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.section-home {
+    height: 100vh;
+    background: url('/background-hero.jpg') no-repeat;
+    background-size: cover;
+    background-position-x: center;
+}
+
+.section {
+    @apply flex flex-col gap-8 px-6 py-12
+    2xl:p-16 2xl:gap-12
+}
+
+.btn {
+    @apply px-3 py-2 rounded-lg bg-white text-black font-medium border-2
+    hover:animate-scale hover:shadow-2xl hover:bg-[#1E1E1E] hover:bg-opacity-85 hover:text-white hover:border-gray-300
+}
+
+.input {
+    @apply px-4 py-3 rounded-lg bg-primary stroke-white
+    focus:outline-none focus:ring-2 focus:ring-amber-500 focus:animate-scale focus:my-2
+    placeholder:text-slate-300 placeholder:text-opacity-80
+}
+
+h1, h2 {
+    @apply text-3xl text-center font-bold
+    xs:text-4xl
+}
+
+h3, h4 {
+    @apply font-bold text-xl text-center
+    xs:text-2xl
+}
+
+h6 {
+    @apply font-semibold text-lg
+}
+
+p {
+    @apply text-white text-opacity-70 text-sm text-wrap
+    sm:text-subtitle
+}

@@ -2,10 +2,11 @@
 import Footer from '@/components/Footer.astro';
 import NavBar from '@/components/NavBar.astro';
 import "@fontsource-variable/inter";
+import "@/global.css";
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="edfs">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -16,9 +17,7 @@ import "@fontsource-variable/inter";
 	</head>
 	<body>
 		<NavBar/>
-		
 		<slot />
-
 		<Footer/>
 	</body>
 </html>
