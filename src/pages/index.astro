@@ -4,7 +4,6 @@ import CardsLayout from "@/layouts/CardsLayout.astro";
 
 import HeroView from "@/views/HeroView.astro";
 import InfoView from "@/views/InfoView.astro";
-import GaleryView from "@/views/GaleryView.astro";
 import OpinionView from "@/views/OpinionView.astro";
 
 import ProductCard from "@/components/ProductCard.astro";
@@ -12,24 +11,28 @@ import EventCard from "@/components/EventCard.astro";
 import TeamCard from "@/components/TeamCard.astro";
 import UbicationItemInfo from "@/components/UbicationItemInfo.astro";
 import MenuTabs from "@/components/react/MenuTabs";
-import CarouselText from "@/components/react/CarouselText";
 import MapView from "@/components/react/MapView";
+import Carousel from "../components/react/Carousel";
 
-import { pizzas, events, team, ubicationViewData } from "@/data/data";
+import { pizzas, events, team, ubicationViewData, especialities } from "@/data/data";
 
 const $pizzas = pizzas.slice(0, 3);
+const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 ---
 
 <PageLayout>
-	<main class="relative top-[78px] 2xl:top-[70px]">
+	<main class="relative">
 		<HeroView/>
 
 		<section class="section">
 			<h4>Nuestras Especialidades</h4>
-			<CarouselText client:visible/>
+			<Carousel isDynamic={true} array={especialities} client:visible/>
 		</section>
 
-		<GaleryView/>
+		<section class="section bg-thertiary">
+			<h4>Galería de Fotos</h4>
+			<Carousel isDynamic={false} array={photos} client:visible/>
+		</section>
 		
 		<CardsLayout title="Pizzas Destacadas">
 			{ $pizzas.map((p) => <ProductCard product={p}/>) }

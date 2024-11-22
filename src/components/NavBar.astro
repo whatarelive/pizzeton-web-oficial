@@ -5,7 +5,7 @@ import ChangeSelect from "@/components/react/ChangeSelect";
 const links = ['Menú', 'Eventos', 'Sobre Nosotros', 'Ubicación'];
 ---
 
-<header class="fixed z-50 min-w-full flex flex-row lg:gap-8 p-6 lg:px-8 lg:py-4 justify-between items-center bg-primary">
+<header class="fixed z-50 min-w-full flex lg:gap-8 px-6 py-4 lg:px-8 lg:py-4 justify-between items-center bg-primary">
     <a href="#home" target="_self" class="flex flex-row gap-3">
         <img src="/svg/logo.svg" alt='Logo'/>
 
@@ -14,7 +14,7 @@ const links = ['Menú', 'Eventos', 'Sobre Nosotros', 'Ubicación'];
         </span>
     </a>
 
-    <nav class="hidden lg:flex flex-1 gap-2 justify-end ">   
+    <nav class="hidden lg:flex xl:flex-1 gap-2 justify-end">
         {
             links.map(link => (
                 <a class="p-2 text-white hover:bg-base hover:rounded-lg"

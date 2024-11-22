@@ -27,11 +27,11 @@
 
 h1, h2 {
     @apply text-3xl text-center font-bold
-    xs:text-4xl
+    xs:text-4xl lg:text-5xl xl:text-6xl
 }
 
 h3, h4 {
-    @apply font-bold text-xl text-center
+    @apply font-semibold text-xl text-center
     xs:text-2xl
 }
 
