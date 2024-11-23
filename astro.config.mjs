@@ -6,14 +6,13 @@ import react from '@astrojs/react';
 
 import vercel from '@astrojs/vercel/serverless';
 
+import db from '@astrojs/db';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
 
-  integrations: [
-    tailwind(), 
-    react()
-  ],
+  integrations: [tailwind(), react(), db()],
 
   adapter: vercel()
 });

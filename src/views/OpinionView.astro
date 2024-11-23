@@ -1,6 +1,7 @@
 ---
 import OpinionsList from "@/components/OpinionsList.astro";
 import ValorationSelect from "@/components/react/ValorationSelect";
+import { actions } from "astro:actions";
 ---
 
 <section class="section" style="padding-inline: 0">
@@ -13,16 +14,16 @@ import ValorationSelect from "@/components/react/ValorationSelect";
             Deja tu Opinión
         </h5>
 
-        <form action="" class="flex w-10/12 flex-col gap-3 p-3">
+        <form method="post" action={ actions.createOpinion } class="flex w-10/12 flex-col gap-3 p-3 md:w-7/12 lg:w-5/12">
             <label title="Nombre Completo" for="nombre">
-                <input id="nombre" type="text" placeholder="Nombre Completo" class="input" />
+                <input name="userName" id="nombre" type="text" placeholder="Nombre Completo" class="input" />
             </label>
             <label title="Número de Telefono" for="telefono">
-                <input id="telefono" type="tel" placeholder="Número de Telefono" class="input"/>
+                <input name="phoneNumber" id="telefono" type="tel" placeholder="Número de Telefono" class="input"/>
             </label>
             <ValorationSelect client:visible/>
             <label title="Opinión" for="opinion">
-                <textarea id="opinion" placeholder="Opinión (150 carácteres)" maxlength="150" class="input h-24 w-full"/>
+                <textarea name="opinion" id="opinion" placeholder="Opinión (150 carácteres)" maxlength="150" class="input h-24 w-full"/>
             </label>
 
             <button

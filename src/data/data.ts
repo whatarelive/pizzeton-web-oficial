@@ -4,7 +4,7 @@ export const team: TeamMember[] = [{
     img: "/Shape.png",
     name: "Elena Gómez",
     position: "Propietaria",
-    bio: "Elena se encarga de crear una atmósfera acogedora y asegurarse de que cada cliente se sienta como en casa."
+    bio: "Elena se encarga de crear una atmósfera acogedora y asegurarse de que cada cliente se sienta como en su casa y disfrute la experiencia."
 },
 {
     img: "/Shape.png",

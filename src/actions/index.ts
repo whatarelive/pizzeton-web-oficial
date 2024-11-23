@@ -7,7 +7,8 @@ export const server = {
         handler: scraping
     }),
     createOpinion : defineAction({
-        handler: createOpinion
+        accept: 'form',
+        handler: createOpinion,
     }),
     getLastOpinions : defineAction({
         handler: getLastOpinions

@@ -50,7 +50,7 @@ const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 		<OpinionView/>
 
 		<CardsLayout id="sobre nosotros" title="Sobre Nosotros" bgView="bg-thertiary">
-			<p class="text-center" slot="description">
+			<p class="text-center max-w-[1024px] self-center" slot="description">
 				En la Pizzería <b>El Pizzeton D'Guti</b>, nos apasiona crear las mejores pizzas 
 				artesanales utilizando ingredientes frescos y locales. Nuestras técnicas modernas 
 				y pasión se combinan para ofrecerte una experiencia culinaria única.
@@ -62,7 +62,7 @@ const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 		<CardsLayout id="ubicación" title="Ubicación">
 			<MapView client:only="react"/>
 
-			<div class="flex flex-col gap-3">
+			<div class="flex flex-col md:max-w-[320px] lg:max-w-[440px] self-center gap-3">
 				{
 					ubicationViewData.map(({label, description}) => (
 						<UbicationItemInfo label={label} description={description} />

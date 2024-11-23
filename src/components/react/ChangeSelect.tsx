@@ -24,12 +24,12 @@ export default function ChangeSelect({ isHidden }: Props) {
   }
 
   return (
-    <div className={`${!isHidden ? 'flex' : 'hidden'} lg:flex lg:items-center p-2 g-4`}>
+    <div className={`${!isHidden ? 'flex' : 'hidden'} lg:flex items-center p-2 g-4`}>
       <label htmlFor={id} className="pr-3">
         Moneda
       </label>
       
-      <select id={id} onChange={onChange} className="w-14 lg:w-20 xl:w-24 p-1.5 rounded-md ring-base ring-1 bg-primary text-white font-medium">
+      <select id={id} onChange={onChange} className="w-20 xl:w-24 p-1.5 rounded-md ring-base ring-1 bg-primary text-white font-medium">
         {MONEDA_VALUES.map(op => (
           <option key={op} value={op} className={`${op === moneda && 'hidden'} font-medium`}>
             {op}

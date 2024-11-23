@@ -11,7 +11,7 @@ export default function MapView() {
             zoom={17}
             attributionControl={false}
             zoomControl={false}
-            className="min-w-[272px] min-h-[272px] rounded-xl z-0"
+            className="min-w-[272px] min-h-[272px] md:max-w-[300px] md:max-h-[300px] lg:min-w-[420px] rounded-xl z-0"
             style={{height: '100%', width: '100%'}}
         >
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
