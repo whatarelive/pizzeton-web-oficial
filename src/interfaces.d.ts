@@ -13,9 +13,9 @@ export interface TeamMember {
 }
 
 export interface Opinion {
-    user: string;
-    description: string;
+    userName: string;
     valoration: number;
+    opinion: string;
 }
 
 interface MenuProduct extends ProductNoSub {

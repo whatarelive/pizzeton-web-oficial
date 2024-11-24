@@ -25,6 +25,10 @@
     placeholder:text-slate-300 placeholder:text-opacity-80
 }
 
+.error {
+    @apply font-bold text-orange-600 mt-1
+}
+
 h1, h2 {
     @apply text-3xl text-center font-bold
     xs:text-4xl lg:text-5xl xl:text-6xl

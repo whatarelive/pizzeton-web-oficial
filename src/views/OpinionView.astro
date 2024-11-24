@@ -1,36 +1,90 @@
 ---
-import OpinionsList from "@/components/OpinionsList.astro";
+// noinspection TypeScriptCheckImport
+import { actions, isInputError } from "astro:actions";
+import OpinionsList from "../components/OpinionsList.astro";
+import OpinionsZero from "../components/OpinionsZero.astro";
 import ValorationSelect from "@/components/react/ValorationSelect";
-import { actions } from "astro:actions";
+
+const opinions = await actions.getLastOpinions();
+
+const result = await Astro.getActionResult(actions.createOpinion);
+const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
 ---
 
 <section class="section" style="padding-inline: 0">
     <h3>Reseñas de los Clientes</h3>
 
-    <OpinionsList/> 
+    { opinions.data.length > 0
+        ? <OpinionsList opinions={opinions.data} />
+        : <OpinionsZero/>
+    }
 
     <div class="flex flex-col items-center gap-4">
         <h5 class="text-xl font-semibold">
             Deja tu Opinión
         </h5>
 
-        <form method="post" action={ actions.createOpinion } class="flex w-10/12 flex-col gap-3 p-3 md:w-7/12 lg:w-5/12">
-            <label title="Nombre Completo" for="nombre">
-                <input name="userName" id="nombre" type="text" placeholder="Nombre Completo" class="input" />
+        <form method="post" action={ actions.createOpinion } class="flex w-10/12 flex-col gap-3 p-3 md:w-7/12 lg:w-5/12 2xl:w-4/12">
+            <label title="Nombre Completo" for="userName">
+                <input
+                    name="userName"
+                    id="userName"
+                    type="text"
+                    placeholder="Nombre Completo"
+                    class="input"
+                    aria-describedby="error-userName"
+                    autocomplete="off"
+                    required
+                />
+                { inputErrors.userName
+                    && <p id="error-userName" class="error">
+                            {inputErrors.userName.join(', ')}
+                       </p>
+                }
             </label>
-            <label title="Número de Telefono" for="telefono">
-                <input name="phoneNumber" id="telefono" type="tel" placeholder="Número de Telefono" class="input"/>
-            </label>
-            <ValorationSelect client:visible/>
-            <label title="Opinión" for="opinion">
-                <textarea name="opinion" id="opinion" placeholder="Opinión (150 carácteres)" maxlength="150" class="input h-24 w-full"/>
+            <label title="Número de Telefono" for="phoneNumber">
+                <input
+                    name="phoneNumber"
+                    id="phoneNumber"
+                    type="tel"
+                    placeholder="Número de Telefono"
+                    class="input"
+                    aria-describedby="error-phoneNumber"
+                    autocomplete="off"
+                    required
+                />
+                { inputErrors.phoneNumber
+                    && <p id="error-phoneNumber" class="error">
+                            {inputErrors.phoneNumber.join(', ')}
+                       </p>
+                }
             </label>
 
-            <button
-                type="submit"
+            <ValorationSelect client:visible/>
+            { inputErrors.valoration && <p class="error">{inputErrors.valoration.join(', ')}</p> }
+
+            <label title="Opinión" for="opinion">
+                <textarea
+                    name="opinion"
+                    id="opinion"
+                    placeholder="Opinión (150 carácteres)"
+                    maxlength="150"
+                    class="input h-24 w-full"
+                    aria-describedby="error-opinion"
+                    autocomplete="off"
+                    required
+                />
+                {
+                    inputErrors.opinion
+                        && <p id="error-opinion" class="error">
+                            {inputErrors.opinion.join(', ')}
+                        </p>
+                    }
+            </label>
+
+            <button type="submit"
                 class="py-3 bg-white text-primary font-semibold rounded-lg
-                hover:animate-scale lg:hover:animate-shake hover:shadow-lg hover:shadow-amber-500"
-            >
+                hover:animate-scale lg:hover:animate-shake hover:shadow-lg hover:shadow-amber-500">
                 Enviar Opinión
             </button>
         </form>
