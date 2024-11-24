@@ -14,8 +14,8 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
 <section class="section" style="padding-inline: 0">
     <h3>Reseñas de los Clientes</h3>
 
-    { opinions && opinions.data.length > 0
-        ? <OpinionsList opinions={opinions.data} />
+    { opinions !== undefined && opinions.data.length > 0
+        ? <OpinionsList opinions={opinions?.data} />
         : <OpinionsZero/>
     }
 
