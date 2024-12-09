@@ -52,9 +52,9 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
                     autocomplete="off"
                     required
                 />
-                { inputErrors.userEmail
+                { inputErrors.phoneNumber
                     && <p id="error-userEmail" class="error">
-                            {inputErrors.userEmail.join(', ')}
+                            {inputErrors.phoneNumber.join(', ')}
                        </p>
                 }
             </label>
