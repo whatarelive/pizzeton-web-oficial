@@ -1,4 +1,4 @@
-import type { Product, ProductNoSub, Event, TeamMember, Opinion } from "@/interfaces";
+import type { Product, ProductNoSub, Event, TeamMember } from "@/interfaces";
 
 export const team: TeamMember[] = [{
     img: "/Shape.png",
@@ -33,37 +33,37 @@ export const events: Event[] = [{
 export const pizzas: Product[] = [{
     img: "/pizza.jpeg",
     title: "Pizza Napolitana",
-    subtitle: "Salsa de tomate, queso gouda, pesto",
+    subtitle: "Salsa de tomate, queso gouda, pesto (aceite de ajo, perejil y albahaca)",
     price: 715.00
 },
 {
     img: "/pizza.jpeg",
     title: "Pizza Chorizo",
-    subtitle: "Salsa de tomate, queso gouda, pesto y chorizo ahumado",
+    subtitle: "Salsa de tomate, queso gouda, pesto (aceite de ajo, perejil y albahaca) y chorizo ahumado",
     price: 945.00
 },
 {
     img: "/pizza.jpeg",
     title: "Pizza de Jamón",
-    subtitle: "Salsa de tomate, queso gouda, pesto y jamón ahumado",
+    subtitle: "Salsa de tomate, queso gouda, pesto (aceite de ajo, perejil y albahaca) y jamón ahumado",
     price: 955.00
 },
 {
     img: "/pizza.jpeg",
     title: "Pizza de Champiñones",
-    subtitle: "Salsa de tomate, queso gouda, pesto, champiñones",
+    subtitle: "Salsa de tomate, queso gouda, pesto (aceite de ajo, perejil y albahaca), champiñones",
     price: 990.00
 },
 {
     img: "/pizza.jpeg",
     title: "Pizza de Estrella",
-    subtitle: "Salsa de tomate, queso gouda, pesto, jamón",
+    subtitle: "Salsa de tomate, queso gouda, pesto (aceite de ajo, perejil y albahaca), jamón",
     price: 1050.00
 },
 {
     img: "/pizza.jpeg",
     title: "Pizza de Atún",
-    subtitle: "Salsa de tomate, queso gouda, pesto, atún",
+    subtitle: "Salsa de tomate, queso gouda, pesto (aceite de ajo, perejil y albahaca), atún",
     price: 1210.00
 },
 {
@@ -75,25 +75,25 @@ export const pizzas: Product[] = [{
 {
     img: "/pizza.jpeg",
     title: "Pizza de Lomo Ahumado",
-    subtitle: "Salsa de tomate, queso gouda, pesto y lomo ahumado",
+    subtitle: "Salsa de tomate, queso gouda, pesto (aceite de ajo, perejil y albahaca) y lomo ahumado",
     price: 1370.00
 },
 {
     img: "/pizza.jpeg",
     title: "Pizza de Jamón Serrano",
-    subtitle: "Salsa de tomate, queso gouda, pesto y jamón serrano",
+    subtitle: "Salsa de tomate, queso gouda, pesto (aceite de ajo, perejil y albahaca) y jamón serrano",
     price: 1415.00
 },
 {
     img: "/pizza.jpeg",
     title: "Pizza Vegtariana",
-    subtitle: "Salsa de tomate, queso gouda, pesto, cebolla, ají y aceitunas",
+    subtitle: "Salsa de tomate, queso gouda, pesto (aceite de ajo, perejil y albahaca), cebolla, ají y aceitunas",
     price: 1470.00
 },
 {
     img: "/pizza.jpeg",
     title: "Pizza de Camarones",
-    subtitle: "Salsa de tomate, queso gouda, pesto y camarones",
+    subtitle: "Salsa de tomate, queso gouda, pesto (aceite de ajo, perejil y albahaca) y camarones",
     price: 1695.00
 }];
 
@@ -184,8 +184,60 @@ export const desserts: ProductNoSub[] = [{
     price: 652.00
 }];
 
+export const aggregations: Omit<ProductNoSub, 'img'>[] = [
+    { 
+        title: 'Doble Queso Gouda',
+        price: 480,
+    },
+    { 
+        title: 'Cebolla',
+        price: 250,
+    },
+    { 
+        title: 'Ajipimiento',
+        price: 250,
+    },
+    { 
+        title: 'Chorizo Ahumado',
+        price: 230,
+    },
+    { 
+        title: 'Jamón Ahumado',
+        price: 240,
+    },
+    { 
+        title: 'Aceitunas',
+        price: 255,
+    },
+    { 
+        title: 'Piña Caramelizada',
+        price: 270,
+    },
+    { 
+        title: 'Champiñones',
+        price: 275,
+    },
+    { 
+        title: 'Atún',
+        price: 495,
+    },
+    { 
+        title: 'Lomo Ahumado',
+        price: 655,
+    },
+    { 
+        title: 'Jamón Serrano',
+        price: 700,
+    },
+    { 
+        title: 'Camarones',
+        price: 980,
+    },
+];
+
 export const menu = {
     Pizzas: pizzas,
+    Agregos: aggregations,
     Pastas: pastas,
     Bebidas: drinks,
     Postres: desserts,
@@ -194,7 +246,7 @@ export const menu = {
 export const especialities = [{
     img: '/pizza2.jpeg',
     title: 'Pizza Estrella',
-    description: 'Nuestra Pizza Estrella es un homenaje a la tradición italiana. Con una base de salsa de tomate San Marzano, mozzarella fresca de búfala, hojas de albahaca recién cortadas y un chorrito de aceite de oliva extra virgen. La simplicidad en su máxima expresión.'
+    description: 'Disfruta de nuestra exclusiva pizza en forma de estrella de seis puntas, cada una rellena con cremoso queso Gouda y delicioso jamón. Un manjar único que combina la frescura de la pasta de tomate con un toque especial de pesto hecho con aceite de ajo, perejil y albahaca. ¡Un sabor innovador que no podrás resistir!'
 },
 {
     img: '/pizza.jpeg',

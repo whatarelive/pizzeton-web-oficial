@@ -9,6 +9,10 @@
     background-position-x: center;
 }
 
+.section-content {
+    @apply flex flex-col h-screen justify-center bg-black bg-opacity-45
+}
+
 .section {
     @apply flex flex-col gap-8 px-6 py-12
     2xl:p-16 2xl:gap-12
@@ -17,6 +21,14 @@
 .btn {
     @apply px-3 py-2 rounded-lg bg-white text-black font-medium border-2
     hover:animate-scale hover:shadow-2xl hover:bg-[#1E1E1E] hover:bg-opacity-85 hover:text-white hover:border-gray-300
+}
+
+.btn-submit {
+    @apply py-3 bg-white text-primary font-semibold rounded-lg hover:animate-scale lg:hover:animate-shake hover:shadow-lg hover:shadow-amber-500
+}
+
+.form {
+    @apply flex w-10/12 flex-col gap-3 p-3 md:w-7/12 lg:w-5/12 2xl:w-4/12
 }
 
 .input {

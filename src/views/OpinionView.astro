@@ -1,5 +1,4 @@
 ---
-// noinspection TypeScriptCheckImport
 import { actions, isInputError } from "astro:actions";
 import OpinionsList from "../components/OpinionsList.astro";
 import OpinionsZero from "../components/OpinionsZero.astro";
@@ -24,7 +23,7 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
             Deja tu Opinión
         </h5>
 
-        <form method="post" action={ actions.createOpinion } class="flex w-10/12 flex-col gap-3 p-3 md:w-7/12 lg:w-5/12 2xl:w-4/12">
+        <form method="post" action={ actions.createOpinion } class="form">
             <label title="Nombre Completo" for="userName">
                 <input
                     name="userName"
@@ -42,20 +41,20 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
                        </p>
                 }
             </label>
-            <label title="Número de Telefono" for="phoneNumber">
+            <label title="Número de Telefono" for="userEmail">
                 <input
-                    name="phoneNumber"
-                    id="phoneNumber"
-                    type="tel"
-                    placeholder="Número de Telefono"
+                    name="userEmail"
+                    id="userEmail"
+                    type="email"
+                    placeholder="Correo electronico"
                     class="input"
-                    aria-describedby="error-phoneNumber"
+                    aria-describedby="error-userEmail"
                     autocomplete="off"
                     required
                 />
-                { inputErrors.phoneNumber
-                    && <p id="error-phoneNumber" class="error">
-                            {inputErrors.phoneNumber.join(', ')}
+                { inputErrors.userEmail
+                    && <p id="error-userEmail" class="error">
+                            {inputErrors.userEmail.join(', ')}
                        </p>
                 }
             </label>
@@ -82,9 +81,7 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
                     }
             </label>
 
-            <button type="submit"
-                class="py-3 bg-white text-primary font-semibold rounded-lg
-                hover:animate-scale lg:hover:animate-shake hover:shadow-lg hover:shadow-amber-500">
+            <button type="submit" class="btn-submit">
                 Enviar Opinión
             </button>
         </form>

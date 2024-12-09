@@ -1,0 +1,87 @@
+---
+import AuthLayout from "@/layouts/AuthLayout.astro";
+---
+
+<AuthLayout subtitle="Crea tu cuenta">
+    <form method="post" class="form min-w-full">
+        <label title="Nombre Completo" for="name">
+            <input
+                name="name"
+                id="name"
+                type="text"
+                placeholder="Nombre Completo"
+                class="input"
+                aria-describedby="error-userName"
+                autocomplete="off"
+                required
+            />
+            <!-- { inputErrors.userName
+                && <p id="error-userName" class="error">
+                        {inputErrors.userName.join(', ')}
+                </p>
+            } -->
+        </label>
+        <label title="Número de Telefono" for="email">
+            <input
+                name="email"
+                id="email"
+                type="email"
+                placeholder="Correo electronico"
+                class="input"
+                aria-describedby="error-userEmail"
+                autocomplete="off"
+                required
+            />
+            <!-- { inputErrors.userEmail
+                && <p id="error-userEmail" class="error">
+                        {inputErrors.userEmail.join(', ')}
+                </p>
+            } -->
+        </label>
+        <label title="Contraseña" for="password">
+            <input
+                name="password"
+                id="password"
+                type="password"
+                placeholder="Contraseña"
+                class="input"
+                aria-describedby="error-userPassword"
+                autocomplete="off"
+                required
+            />
+            <!-- { inputErrors.userName
+                && <p id="error-userName" class="error">
+                        {inputErrors.userName.join(', ')}
+                </p>
+            } -->
+        </label>
+        <!-- <label title="Confirmar Contraseña" for="password-confirm">
+            <input
+                name="password-confirm"
+                id="password-confirm"
+                type="password"
+                placeholder="Confirmar Contraseña"
+                class="input"
+                aria-describedby="error-password-confirm"
+                autocomplete="off"
+                required
+            /> -->
+            <!-- { inputErrors.userName
+                && <p id="error-userName" class="error">
+                        {inputErrors.userName.join(', ')}
+                </p>
+            } -->
+        <!-- </label> -->
+
+        <button type="submit" class="btn-submit">
+            Registrar Cuenta
+        </button>
+    </form>
+
+    <div class="flex flex-col items-center">
+        ¿Ya tienes una cuenta?
+        <a href="/auth/login" target="_self" class="text-orange-400">
+            Inicia sesión
+        </a>
+    </div>
+</AuthLayout>

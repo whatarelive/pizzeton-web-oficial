@@ -15,7 +15,7 @@ export default function MenuTabs() {
 
   return (
     <>
-        <div className="flex w-full justify-start gap-2">
+        <div className="flex w-full max-w-screen-2xl justify-start gap-2">
             { 
                 buttons.map(label => (
                     <button 
@@ -32,7 +32,7 @@ export default function MenuTabs() {
             }
         </div>
 
-        <ul className="grid grid-cols-1 md:grid-cols-2 w-full gap-4">
+        <ul className="grid grid-cols-1 md:grid-cols-2 w-full max-w-screen-2xl gap-4 md:gap-x-16">
             { 
                 menu[selectTab].map(p => (
                     <li key={p.title}>

@@ -8,7 +8,7 @@ export default function MapView() {
     return (
         <MapContainer
             center={MAP_POSITIONS}
-            zoom={17}
+            zoom={15}
             attributionControl={false}
             zoomControl={false}
             className="min-w-[272px] min-h-[272px] md:max-w-[300px] md:max-h-[300px] lg:min-w-[420px] rounded-xl z-0"

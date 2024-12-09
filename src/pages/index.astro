@@ -1,5 +1,5 @@
 ---
-import PageLayout from "@/layouts/PageLayout.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
 import CardsLayout from "@/layouts/CardsLayout.astro";
 
 import HeroView from "@/views/HeroView.astro";
@@ -14,12 +14,13 @@ import MapView from "@/components/react/MapView";
 import Carousel from "../components/react/Carousel";
 
 import { pizzas, events, team, ubicationViewData, especialities } from "@/data/data";
+import ButtonAgregations from "@/components/react/ButtonAgregations";
 
 const $pizzas = pizzas.slice(0, 3);
 const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 ---
 
-<PageLayout>
+<MainLayout>
 	<main class="relative">
 		<HeroView/>
 
@@ -37,8 +38,21 @@ const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 			{ $pizzas.map((p) => <ProductCard product={p}/>) }
 		</CardsLayout>
 
-		<section id="menú" class="section bg-primary">
+		<section id="menú" class="section items-center bg-primary">
 			<h3>Menú Completo</h3>
+			
+			<div class="flex flex-col items-center gap-4">
+				<p class="md:text-center max-w-screen-2xl">
+					En nuestro menú encontrarás una irresistible variedad de pizzas, cuidadosamente preparadas 
+					con ingredientes frescos y combinaciones que deleitarán tu paladar. Desde las clásicas 
+					favoritas hasta nuestras especialidades exclusivas, cada opción está diseñada para satisfacer 
+					tus antojos. <b class="text-white">¿Quieres personalizar tu pizza?</b> 
+					¡Es muy fácil! Explora los agregados disponibles para crear tu combinación perfecta.
+				</p>
+			
+				<ButtonAgregations client:visible/>
+			</div>
+
 			<MenuTabs client:visible/>
 		</section>
 
@@ -78,4 +92,4 @@ const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 
 		<InfoView/>
 	</main>
-</PageLayout>
+</MainLayout>
