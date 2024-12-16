@@ -1,0 +1,11 @@
+---
+import InfoLayout from "@/layouts/InfoLayout.astro";
+import ButtonReload from "@/components/react/ButtonReload";
+---
+
+<InfoLayout image="error" alt="Error de conexión">
+    <p class="font-bold text-wrap text-center text-amber-400">
+        "Estamos teniendo problemas con la conexión, por favor recargue la página."
+    </p>
+    <ButtonReload client:visible/>
+</InfoLayout>

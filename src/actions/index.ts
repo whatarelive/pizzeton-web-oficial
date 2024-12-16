@@ -1,12 +1,10 @@
-import { defineAction } from "astro:actions";
-import { scraping } from '@/actions/scraping';
-import { createOpinion, getLastOpinions } from "@/actions/opinion";
 import { z } from "astro:schema";
+import { defineAction } from "astro:actions";
+import { getChange } from '@/actions/scraping';
+import { getMenu, getProminentPizzas } from "@/actions/menu";
+import { createOpinion, getLastOpinions } from "@/actions/opinion";
 
 export const server = {
-    getChange: defineAction({
-        handler: scraping
-    }),
     createOpinion : defineAction({
         accept: 'form',
         input: z.object({
@@ -27,5 +25,8 @@ export const server = {
     }),
     getLastOpinions : defineAction({
         handler: getLastOpinions
-    })
+    }),
+    getChange,
+    getMenu,
+    getProminentPizzas,
 }

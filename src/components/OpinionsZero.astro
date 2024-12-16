@@ -1,16 +1,11 @@
 ---
-import ValorationRate from "./ValorationRate.astro";
+import InfoLayout from "@/layouts/InfoLayout.astro";
+import ValorationRate from "@/components/ValorationRate.astro";
+
 ---
-<div class="flex flex-col lg:flex-row max-w-max mx-6 items-center gap-6 self-center p-4 bg-secondary rounded-xl justify-center">
-    <img
-        src="/svg/opinion2.svg"
-        alt="Primera Opinión"
-        class="w-56 xs:w-64 sm:w-72 p-6 opacity-85 bg-base rounded-xl"
-    />
-    <div class="flex flex-col w-56 xs:w-64 sm:w-72 items-center gap-4">
-        <p class="font-bold text-wrap text-center">
-            "Vamos, sea el primer cliente en dar su opinión."
-        </p>
-        <ValorationRate valoration={5} />
-    </div>
-</div>
+<InfoLayout image="opinion" alt="Primera opinión">
+    <p class="font-bold text-wrap text-center">
+        "Vamos, sea el primer cliente en dar su opinión."
+    </p>
+    <ValorationRate valoration={5} />
+</InfoLayout>

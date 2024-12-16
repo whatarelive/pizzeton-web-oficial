@@ -1,8 +1,13 @@
 export interface Product {
-    img: string;
+    imgUrl: string;
     title: string;
     subtitle: string;
     price: number;
+}
+
+export interface Prominent {
+    id: string;
+    product: Product
 }
 
 export interface TeamMember {

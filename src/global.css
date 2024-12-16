@@ -19,7 +19,7 @@
 }
 
 .btn {
-    @apply px-3 py-2 rounded-lg bg-white text-black font-medium border-2
+    @apply px-1.5 py-1.5 md:px-3 md:py-2 rounded-lg bg-white text-black font-medium border-2
     hover:animate-scale hover:shadow-2xl hover:bg-[#1E1E1E] hover:bg-opacity-85 hover:text-white hover:border-gray-300
 }
 
