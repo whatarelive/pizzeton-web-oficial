@@ -11,16 +11,18 @@ export const getMenu = defineAction({
     input: MenuSchema,
     handler: async ({ category }) => {
         try {
-            const { data } = await pizzetonApi.get<Product[]>(`products/${category}`);
+            const { data, status } = await pizzetonApi.get<Product[]>(`products/${category}`);
     
-            if (data.length === 0) {
-                throw new Error("No hay productos para mostrar.");
-            }
+            if (status !== 200) throw new Error("Failed fecth.");
+
+            if (data.length === 0) return [];
     
             return data;
     
-        } catch (errors) {
-            console.log(errors);
+        } catch (error) {
+            console.log("Error fetching prominent pizzas.", error); 
+            
+            throw new Error("Failed to fetch menu products.");
         }
     }
 })

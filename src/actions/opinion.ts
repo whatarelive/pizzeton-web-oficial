@@ -1,50 +1,27 @@
-import { db, desc, Opinions } from "astro:db";
 import { z } from "astro:schema";
-import { randomUUID } from "node:crypto";
+import { defineAction } from "astro:actions";
 
-const OpinionSchema = z.object({
-    date: z.date(),
-    opinion: z.string().max(150),
-    opinionId: z.string(),
-    phoneNumber: z.string().min(8).max(10),
-    userName: z.string().min(5).max(100),
-    valoration: z.coerce.number().min(1).max(5)
+const opinionSchema = z.object({
+    userName: z.string({ message: "El nombre de usuario es requerido." })
+        .min(5, { message: "El nombre no puede tener menos de 5 carácteres." })
+        .max(30, { message: "El nombre no puede tener más de 30 carácteres." }),
+    phoneNumber: z.string({ message: "El número de teléfono es requerido." })
+        .min(8, { message: "Número de teléfono incorrecto." })
+        .max(11, { message: "Número de teléfono incorrecto." }),
+    valoration: z.coerce.number({ message: "La valoración es requerida." })
+        .min(1, { message: "Valoración incorrecta." })
+        .max(5, { message: "Valoración incorrecta." }),
+    opinion: z
+        .string({ message: "La opinión es requerida." })
+        .max(150, { message: "La opinión no puede tener más de 150 carácteres." })
+})
+
+export const createOpinion = defineAction({
+    accept: 'form',
+    input: opinionSchema,
+    handler: async () => {}
 });
 
-const OpinionForData = OpinionSchema.omit({
-    opinionId: true,
-    date: true
-});
-
-type Request = typeof OpinionForData._output;
-
-export async function createOpinion({ userName, opinion, valoration, phoneNumber }: Request) {
-    try {
-        await db.insert(Opinions).values({
-            idOpinion: randomUUID().toString(),
-            date: new Date(),
-            userName: userName,
-            userPhone: phoneNumber,
-            valoration: valoration,
-            opinion: opinion
-        });
-
-    } catch (errors) {
-        console.log(errors);
-    }
-}
-
-export async function getLastOpinions() {
-    try {
-        const data = await db.select().from(Opinions).orderBy(desc(Opinions.date)).limit(8);
-
-        return data.map(opinion => ({
-            userName: opinion.userName,
-            valoration: opinion.valoration,
-            opinion: opinion.opinion
-        }));
-
-    } catch (errors) {
-        console.log(errors);
-    }
-}
+export const getLastOpinions = defineAction({
+    handler: async () => {}
+})

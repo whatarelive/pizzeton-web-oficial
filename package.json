@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/db": "^0.14.3",
     "@fontsource-variable/inter": "^5.1.0",
     "@nanostores/react": "^0.8.0",
     "astro": "^4.16.10",
