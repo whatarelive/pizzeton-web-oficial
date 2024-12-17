@@ -3,54 +3,40 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import CardsLayout from "@/layouts/CardsLayout.astro";
 
 import HeroView from "@/views/HeroView.astro";
+import ProminentPizzas from "@/views/ProminentPizzas.astro";
+import MenuView from "@/views/MenuView.astro";
 import InfoView from "@/views/InfoView.astro";
 import OpinionView from "@/views/OpinionView.astro";
-import ProminentPizzas from "@/views/ProminentPizzas.astro";
 
 import EventCard from "@/components/EventCard.astro";
 import TeamCard from "@/components/TeamCard.astro";
-import MenuTabs from "@/components/react/MenuTabs";
 import Carousel from "@/components/react/Carousel";
-import ButtonAgregations from "@/components/react/ButtonAgregations";
 
 import { events, team, ubicationViewData, especialities } from "@/data/data";
+import AggregationsModal from "@/components/react/AggregationsModal";
 
 const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 ---
 
 <MainLayout>
 	<main class="relative">
+		<AggregationsModal client:load/>
+		
 		<HeroView/>
-
+		
 		<section class="section">
 			<h4>Nuestras Especialidades</h4>
 			<Carousel isDynamic={true} array={especialities} client:visible/>
 		</section>
-
+		
 		<section class="section bg-thertiary">
 			<h4>Galería de Fotos</h4>
 			<Carousel isDynamic={false} array={photos} client:visible/>
 		</section>
-
+		
 		<ProminentPizzas/>
 
-		<section id="menú" class="section items-center bg-primary">
-			<h3>Menú Completo</h3>
-			
-			<div class="flex flex-col items-center gap-4">
-				<p class="text-wrap md:text-center max-w-screen-2xl">
-					En nuestro menú encontrarás una irresistible variedad de pizzas, cuidadosamente preparadas 
-					con ingredientes frescos y combinaciones que deleitarán tu paladar. Desde las clásicas 
-					favoritas hasta nuestras especialidades exclusivas, cada opción está diseñada para satisfacer 
-					tus antojos. <b class="text-white">¿Quieres personalizar tu pizza?</b> 
-					¡Es muy fácil! Explora los agregados disponibles para crear tu combinación perfecta.
-				</p>
-			
-				<ButtonAgregations client:visible/>
-			</div>
-
-			<MenuTabs client:visible/>
-		</section>
+		<MenuView/>
 
 		<CardsLayout id="eventos" title="Eventos Especiales" bgView="bg-thertiary">
 			{ events.map((e) => <EventCard event={e}/>) }
@@ -59,7 +45,7 @@ const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 		<OpinionView/>
 
 		<CardsLayout id="sobrenosotros" title="Sobre Nosotros" bgView="bg-thertiary">
-			<p class="text-center max-w-[1024px] self-center" slot="description">
+			<p class="text-center max-w-[1000px] self-center" slot="description">
 				En la Pizzería <b>El Pizzeton D'Guti</b>, nos apasiona crear las mejores pizzas 
 				artesanales utilizando ingredientes frescos y locales. Nuestras técnicas modernas 
 				y pasión se combinan para ofrecerte una experiencia culinaria única.

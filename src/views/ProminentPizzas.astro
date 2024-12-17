@@ -9,12 +9,15 @@ const { data, error } = await actions.getProminentPizzas();
 ---
 
 <CardsLayout title="Pizzas Destacadas">
-    <p slot="description" class="text-center max-w-screen-xl self-center">
-        Explora nuestras pizzas destacadas, una selección única que combina los sabores más clásicos 
-        con opciones gourmet irresistibles. Preparadas con ingredientes frescos, masas crujientes y 
-        recetas tradicionales, cada pizza está pensada para deleitar tu paladar. 
+    <div class="flex w-screen flex-col items-center gap-1">
+        <p slot="description" class="text-center max-w-screen-xl self-center">
+            Explora nuestras pizzas destacadas, esta selección única que combina los sabores más clásicos 
+            con opciones gourmet irresistibles. Preparadas con ingredientes frescos, masas crujientes y 
+            recetas tradicionales, cada pizza está pensada para deleitar tu paladar. <br/>
+        </p>
         <b class="text-white">¿Listo para elegir tu favorita?</b>
-    </p>
+    </div>
+    
 
     { 
         (!data || error) ? <Error/> : (data.length === 0) 

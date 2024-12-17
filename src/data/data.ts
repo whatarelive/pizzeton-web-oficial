@@ -1,4 +1,4 @@
-import type { ProductNoSub, Event, TeamMember } from "@/interfaces";
+import type { TeamMember } from "@/interfaces";
 
 export const team: TeamMember[] = [{
     img: "/Shape.png",
@@ -19,18 +19,18 @@ export const team: TeamMember[] = [{
     bio: "Formado en Italia, Marco combina técnicas tradicionales con innovación culinaria para crear nuestras deliciosas pizzas."
 }];
 
-export const events: Event[] = [{
-    img: "/cumple.jpg",
+export const events = [{
+    imgUrl: "/cumple.jpg",
     title: "Cumpleaños Especial",
     subtitle: "Celebra tu cumpleaños con nosotros y recibe sorpresas"
 },
 {
-    img: "/circo.jpg",
+    imgUrl: "/circo.jpg",
     title: "Espectaculos de Circo",
     subtitle: "Disfruta con tu familia y amigos de un magnifico momento."
 }];
 
-export const aggregations: Omit<ProductNoSub, 'img'>[] = [
+export const aggregations = [
     { 
         title: 'Doble Queso Gouda',
         price: 480,

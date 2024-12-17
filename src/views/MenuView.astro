@@ -1,0 +1,26 @@
+---
+import Menu from "@/components/react/Menu";
+import AggregationsModal from "@/components/react/AggregationsModal";
+import AgregationsButton from "@/components/react/AgregationsButton";
+---
+
+<section id="menú" class="section items-center justify-center bg-primary">
+    <h3>Menú Completo</h3>
+    
+    <div class="flex flex-col items-center gap-2">
+        <p class="text-center max-w-screen-2xl">
+            En nuestro menú tendrás una irresistible variedad de pizzas, cuidadosamente preparadas 
+            con ingredientes frescos y combinaciones que te gustarán. Desde las más clásicas 
+            favoritas hasta nuestras especialidades exclusivas, cada opción está diseñada para complacer 
+            todos tus deseos.
+        </p>
+        <p class="text-center max-w-screen-2xl mt-4 mb-2">
+            <b class="text-white">¿Quieres personalizar tu pizza?</b> <br/>
+            Explora los agregados disponibles para crear tu combinación perfecta.
+        </p>
+    
+        <AgregationsButton title="Mostrar Agregos" client:visible/>
+    </div>
+
+    <Menu client:visible/>
+</section>
