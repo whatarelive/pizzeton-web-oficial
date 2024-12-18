@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { actions } from "astro:actions";
 import { useStore } from "@nanostores/react";
-import { changeStore } from "@/store/ChangeStore";
+import { changeStore } from "@/store/store";
 
 const MONEDA_VALUES = ['CUP', 'EUR', 'USD', 'MLC'];
 

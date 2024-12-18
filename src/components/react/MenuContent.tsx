@@ -7,7 +7,7 @@ interface Props {
 
 export default function MenuContent({ menu }: Props) {
   return (
-    <ul className="grid grid-cols-1 md:grid-cols-2 w-full max-w-screen-2xl gap-4 md:gap-x-16">
+    <ul className="grid grid-cols-1 md:grid-cols-2 w-full max-w-screen-2xl gap-4 md:gap-x-16 bg-thertiary py-4 px-6 rounded-xl">
       { 
         menu.map(({ title, subtitle, price }) => (
           <li key={title}>

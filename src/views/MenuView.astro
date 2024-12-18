@@ -1,10 +1,9 @@
 ---
 import Menu from "@/components/react/Menu";
-import AggregationsModal from "@/components/react/AggregationsModal";
 import AgregationsButton from "@/components/react/AgregationsButton";
 ---
 
-<section id="menú" class="section items-center justify-center bg-primary">
+<section id="menú" class="section items-center min-h-screen justify-start bg-primary">
     <h3>Menú Completo</h3>
     
     <div class="flex flex-col items-center gap-2">
@@ -23,4 +22,13 @@ import AgregationsButton from "@/components/react/AgregationsButton";
     </div>
 
     <Menu client:visible/>
+
+    <div class="flex flex-col md:flex-row justify-center items-center gap-2">
+        <b class="text-white bg-green-700 py-1 px-2 md:py-2 rounded-md">
+            ¿Qué es el pesto?
+        </b> 
+        <p class="text-center">
+            Es una mezcla de aceite de ajo, perejil y albahaca.
+        </p>
+    </div>
 </section>

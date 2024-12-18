@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
-import { changeStore } from "@/store/ChangeStore";
+import { changeStore } from "@/store/store";
 
 interface Props {
   price: number;

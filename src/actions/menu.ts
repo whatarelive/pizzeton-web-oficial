@@ -1,7 +1,7 @@
 import { z } from "astro:schema";
 import { defineAction } from "astro:actions";
-import pizzetonApi from "@/api/pizzetonApi";
-import type { Product, Prominent } from "@/interfaces";
+import getRequest from "./helpers/getRequest";
+import type { Agregation, Product, Prominent } from "@/interfaces";
 
 const MenuSchema = z.object({
     category: z.string()
@@ -10,40 +10,26 @@ const MenuSchema = z.object({
 export const getMenu = defineAction({
     input: MenuSchema,
     handler: async ({ category }) => {
-        try {
-            const { data, status } = await pizzetonApi.get<Product[]>(`products/${category}`);
-    
-            if (status !== 200) throw new Error("Failed fecth.");
-
-            if (data.length === 0) return [];
-    
-            return data;
-    
-        } catch (error) {
-            console.log("Error fetching prominent pizzas.", error); 
-            
-            throw new Error("Failed to fetch menu products.");
-        }
+        return await getRequest<Product>(`products/${category}`);
     }
 })
 
 export const getProminentPizzas = defineAction({
     handler: async () => {
-        try {
-            const { data, status } = await pizzetonApi.get<Prominent[]>(`product/prominents?limit=4`);
-            
-            if (status !== 200) throw new Error("Failed fecth.");
-            
-            if (data.length === 0) return [];
-            
-            return data.map(({ product }) => {
-                return product
-            });
-    
-        } catch (error) {
-            console.log("Error fetching prominent pizzas.", error); 
-            
-            throw new Error("Failed to fetch prominents pizzas.");
-        }
+        const data = await getRequest<Prominent>('product/prominents?limit=4');
+        
+        return data.map(({ product }) => {
+            return product
+        });
     }
 })
+
+export const getAgregations = defineAction({
+    handler: async () => {
+        const data = await getRequest<Agregation>('product/agregations');
+
+        return data.map(({ title, price }) => {
+            return { title, price };
+        });        
+    }
+});

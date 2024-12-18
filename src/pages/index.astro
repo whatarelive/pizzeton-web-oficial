@@ -11,16 +11,16 @@ import OpinionView from "@/views/OpinionView.astro";
 import EventCard from "@/components/EventCard.astro";
 import TeamCard from "@/components/TeamCard.astro";
 import Carousel from "@/components/react/Carousel";
+import AgregationsModal from "@/components/react/AgregationsModal";
 
 import { events, team, ubicationViewData, especialities } from "@/data/data";
-import AggregationsModal from "@/components/react/AggregationsModal";
 
 const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 ---
 
 <MainLayout>
 	<main class="relative">
-		<AggregationsModal client:load/>
+		<AgregationsModal client:load/>
 		
 		<HeroView/>
 		

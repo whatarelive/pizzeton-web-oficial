@@ -10,6 +10,9 @@ export interface Prominent {
     product: Product
 }
 
+export interface Agregation 
+    extends Pick<Product, 'title' | 'price'>, Pick<Prominent, 'id'> {}
+
 export interface TeamMember {
     img: string;
     name: string;
@@ -23,8 +26,12 @@ export interface Opinion {
     opinion: string;
 }
 
-interface MenuProduct extends ProductNoSub {
-    subtitle?: string;
+export interface AgregationsStore {
+    agregations?: Omit<Agregation, 'id'>[];
+}
+
+export interface MenuStore {
+    categories: { tab: string, men: Product[] }[]
 }
 
 export type ProductNoSub = Omit<Product, 'subtitle'>

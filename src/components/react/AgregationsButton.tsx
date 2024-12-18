@@ -1,4 +1,4 @@
-import { uiStore } from "@/store/UiStore";
+import { uiStore } from "@/store/store";
 
 interface Props {
   title: string;
