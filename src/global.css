@@ -4,7 +4,7 @@
 
 .section-home {
     height: 100vh;
-    background: url('/background-hero.jpg') no-repeat;
+    background: url('/background-hero.webp') no-repeat;
     background-size: cover;
     background-position-x: center;
 }
@@ -15,7 +15,7 @@
 
 .section {
     @apply flex flex-col gap-6 px-6 py-12
-    2xl:p-16 2xl:gap-12
+    2xl:p-16 2xl:gap-8
 }
 
 .btn {

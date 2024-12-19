@@ -5,15 +5,15 @@ import CardsLayout from "@/layouts/CardsLayout.astro";
 import HeroView from "@/views/HeroView.astro";
 import ProminentPizzas from "@/views/ProminentPizzas.astro";
 import MenuView from "@/views/MenuView.astro";
-import InfoView from "@/views/InfoView.astro";
+import EventView from "@/views/EventView.astro";
 import OpinionView from "@/views/OpinionView.astro";
+import InfoView from "@/views/InfoView.astro";
 
-import EventCard from "@/components/EventCard.astro";
 import TeamCard from "@/components/TeamCard.astro";
 import Carousel from "@/components/react/Carousel";
 import AgregationsModal from "@/components/react/AgregationsModal";
 
-import { events, team, ubicationViewData, especialities } from "@/data/data";
+import { team, ubicationViewData, especialities } from "@/data/data";
 
 const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 ---
@@ -38,9 +38,7 @@ const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 
 		<MenuView/>
 
-		<CardsLayout id="eventos" title="Eventos Especiales" bgView="bg-thertiary">
-			{ events.map((e) => <EventCard event={e}/>) }
-		</CardsLayout>
+		<EventView/>
 
 		<OpinionView/>
 

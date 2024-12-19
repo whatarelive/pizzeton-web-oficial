@@ -34,6 +34,11 @@ export interface MenuStore {
     categories: { tab: string, men: Product[] }[]
 }
 
+export interface EventFromRequest extends Omit<Product, 'price'> {
+    imgId: string;
+    active: boolean;
+}
+
 export type ProductNoSub = Omit<Product, 'subtitle'>
 export type Event = Omit<Product, 'price'>;
 export type Menu = 'Pizzas' | 'Pastas' | 'Bebidas' | 'Postres';

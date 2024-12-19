@@ -1,0 +1,36 @@
+---
+import { actions } from "astro:actions";
+import EmptyData from "@/components/EmptyData.astro";
+import Error from "@/components/Error.astro";
+import EventCard from "@/components/EventCard.astro";
+import CardsLayout from "@/layouts/CardsLayout.astro";
+
+const { data, error } = await actions.getEvents();
+---
+
+<CardsLayout id="eventos" title="Eventos Especiales" bgView="bg-thertiary"> 
+    <p slot="description" class="text-center max-w-[1170px] self-center">
+        Descubre todos los eventos especiales que organizamos en nuestra pizzería. 
+        Consulta la lista completa y vive momentos únicos con tus amigos y familiares 
+        mientras disfrutas de nuestras deliciosas pizzas en un ambiente acogedor.
+        ¡Haz que cada visita sea especial, te esperamos!
+    </p>
+
+    { 
+        !data || error 
+            ? <Error/> 
+            : data.length === 0 
+                ? <EmptyData/> 
+                : data.map((e) => <EventCard event={e}/>) 
+    }
+
+    <div slot="auxiliar" class="flex flex-col md:flex-row justify-center items-center gap-2 mt-4">
+        <b class="text-white bg-green-700 p-1.5 rounded-md">
+            ¿Como reservar?
+        </b> 
+        <p class="text-center">
+            Para hacer las reservas debe llamar al: <br class="inline md:hidden">
+            <b class="text-white">+53 53635566</b>.
+        </p>
+    </div>
+</CardsLayout>

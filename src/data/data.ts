@@ -19,17 +19,6 @@ export const team: TeamMember[] = [{
     bio: "Formado en Italia, Marco combina técnicas tradicionales con innovación culinaria para crear nuestras deliciosas pizzas."
 }];
 
-export const events = [{
-    imgUrl: "/cumple.jpg",
-    title: "Cumpleaños Especial",
-    subtitle: "Celebra tu cumpleaños con nosotros y recibe sorpresas"
-},
-{
-    imgUrl: "/circo.jpg",
-    title: "Espectaculos de Circo",
-    subtitle: "Disfruta con tu familia y amigos de un magnifico momento."
-}];
-
 export const especialities = [{
     img: '/pizza2.jpeg',
     title: 'Pizza Estrella',
