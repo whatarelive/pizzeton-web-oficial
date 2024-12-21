@@ -1,79 +1,47 @@
 ---
+import { actions, isInputError } from "astro:actions";
+import { authStore } from "@/store/store";
+import InputText from "@/components/InputText.astro";
 import AuthLayout from "@/layouts/AuthLayout.astro";
+
+const result = await Astro.getActionResult(actions.register);
+
+const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
+const serverValidationErrors = result?.data.field ? { ...result.data } : {};
+
+if (authStore.value.session) {
+    return Astro.redirect('/')
+}
 ---
 
 <AuthLayout subtitle="Crea tu cuenta">
-    <form method="post" class="form min-w-full">
-        <label title="Nombre Completo" for="name">
-            <input
-                name="name"
-                id="name"
-                type="text"
-                placeholder="Nombre Completo"
-                class="input"
-                aria-describedby="error-userName"
-                autocomplete="off"
-                required
-            />
-            <!-- { inputErrors.userName
-                && <p id="error-userName" class="error">
-                        {inputErrors.userName.join(', ')}
-                </p>
-            } -->
-        </label>
-        <label title="Número de Telefono" for="email">
-            <input
-                name="email"
-                id="email"
-                type="email"
-                placeholder="Correo electronico"
-                class="input"
-                aria-describedby="error-userEmail"
-                autocomplete="off"
-                required
-            />
-            <!-- { inputErrors.userEmail
-                && <p id="error-userEmail" class="error">
-                        {inputErrors.userEmail.join(', ')}
-                </p>
-            } -->
-        </label>
-        <label title="Contraseña" for="password">
-            <input
-                name="password"
-                id="password"
-                type="password"
-                placeholder="Contraseña"
-                class="input"
-                aria-describedby="error-userPassword"
-                autocomplete="off"
-                required
-            />
-            <!-- { inputErrors.userName
-                && <p id="error-userName" class="error">
-                        {inputErrors.userName.join(', ')}
-                </p>
-            } -->
-        </label>
-        <!-- <label title="Confirmar Contraseña" for="password-confirm">
-            <input
-                name="password-confirm"
-                id="password-confirm"
-                type="password"
-                placeholder="Confirmar Contraseña"
-                class="input"
-                aria-describedby="error-password-confirm"
-                autocomplete="off"
-                required
-            /> -->
-            <!-- { inputErrors.userName
-                && <p id="error-userName" class="error">
-                        {inputErrors.userName.join(', ')}
-                </p>
-            } -->
-        <!-- </label> -->
-
-        <button type="submit" class="btn-submit">
+    <form method="post" class="form min-w-full" action={actions.register}>
+        <InputText 
+            name="name" 
+            title="Nombre Completo" 
+            placeholder="Adrian Daniel" 
+            inputErrors={inputErrors['name']}
+            serverValidations={serverValidationErrors}
+        />
+        
+        <InputText 
+            name="email" 
+            type="email" 
+            title="Correo electronico" 
+            placeholder="correo@gmail.com" 
+            inputErrors={inputErrors['email']}
+            serverValidations={serverValidationErrors}
+        />
+        
+        <InputText 
+            name="password" 
+            type="password" 
+            title="Contraseña" 
+            placeholder="*********" 
+            inputErrors={inputErrors['password']}
+        />
+                
+        <button type="submit" class="btn-submit mt-4">
             Registrar Cuenta
         </button>
     </form>

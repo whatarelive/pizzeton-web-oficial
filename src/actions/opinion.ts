@@ -23,5 +23,7 @@ export const createOpinion = defineAction({
 });
 
 export const getLastOpinions = defineAction({
-    handler: async () => {}
+    handler: async () => {
+        return [];
+    }
 })

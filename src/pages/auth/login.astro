@@ -1,45 +1,40 @@
 ---
+import { actions, isInputError } from "astro:actions";
+import { authStore } from "@/store/store";
 import AuthLayout from "@/layouts/AuthLayout.astro";
+import InputText from "@/components/InputText.astro";
+
+const result = await Astro.getActionResult(actions.singIn);
+
+const inputErrors = isInputError(result?.error) ? result.error.fields : {};
+const serverValidationErrors = result && result?.data.field ? { ...result.data } : {};
+
+if (authStore.value.session) {
+    return Astro.redirect('/')
+}
 ---
 
 <AuthLayout subtitle="Inicia sesión en tu cuenta">
-    <form method="post" class="form min-w-full">
-        <label title="Número de Telefono" for="userEmail">
-            <input
-            name="userEmail"
-            id="userEmail"
+    <form method="post" class="form min-w-full" action={actions.singIn}>
+        <InputText 
+            name="email" 
             type="email"
-            placeholder="Correo electronico"
-            class="input"
-            aria-describedby="error-userEmail"
-            autocomplete="off"
-            required
-            />
-            <!-- { inputErrors.userEmail
-            && <p id="error-userEmail" class="error">
-                {inputErrors.userEmail.join(', ')}
-                </p>
-            } -->
-        </label>
-        <label title="Contraseña" for="password">
-            <input
-                name="password"
-                id="password"
-                type="password"
-                placeholder="Contraseña"
-                class="input"
-                aria-describedby="error-password"
-                autocomplete="off"
-                required
-            />
-            <!-- { inputErrors.userName
-                && <p id="error-userName" class="error">
-                        {inputErrors.userName.join(', ')}
-                </p>
-            } -->
-        </label>
+            title="Correo electronico" 
+            placeholder="correo@gmail.com" 
+            inputErrors={inputErrors['email']}
+            serverValidations={serverValidationErrors}
+        />
+        
+        <InputText 
+            name="password" 
+            type="password"
+            title="Contraseña" 
+            placeholder="**********" 
+            inputErrors={inputErrors['password']}
+            serverValidations={serverValidationErrors}
+        />
 
-        <button type="reset" class="btn-submit">
+        <button type="submit" class="btn-submit mt-4">
             Iniciar Sesión
         </button>
     </form>

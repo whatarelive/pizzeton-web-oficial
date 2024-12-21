@@ -1,6 +1,6 @@
 import pizzetonApi from "@/api/pizzetonApi";
 
-export default async function getRequest<T>(url: string) {
+export async function getRequest<T>(url: string) {
     try {
         const { data, status } = await pizzetonApi.get<T[]>(url);
         

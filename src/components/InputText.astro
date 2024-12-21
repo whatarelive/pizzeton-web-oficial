@@ -1,0 +1,43 @@
+---
+interface Props {
+    name: string;
+    title: string;
+    type?: 'text' | 'email' | 'password';
+    placeholder: string;
+    inputErrors?: string[];
+    serverValidations?: {
+        field: string;
+        message: string;
+    } 
+}
+
+const { name, title, type, placeholder, inputErrors, serverValidations } = Astro.props;
+---
+
+<div class="flex flex-col gap-2">
+    <label title={title} for={name} class="font-semibold ml-1">
+        {`${title} :`}
+    </label>
+    
+    <input
+        name={name}
+        id={name}
+        type={type}
+        placeholder={placeholder}
+        class="input"
+        aria-describedby={`error-${name}`}
+        autocomplete="off"
+    />
+
+    { inputErrors 
+        &&  <p id={`error-${name}`} class="error">
+                {inputErrors.join(', ')}
+            </p>
+    }
+    
+    { serverValidations && serverValidations['field'] === name
+        &&  <p id={`error-${name}`} class="error">
+                {serverValidations.message}
+            </p>
+    }
+</div>

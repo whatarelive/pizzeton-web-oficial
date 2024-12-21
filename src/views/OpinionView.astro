@@ -4,7 +4,7 @@ import OpinionsList from "../components/OpinionsList.astro";
 import OpinionsZero from "../components/OpinionsZero.astro";
 import ValorationSelect from "@/components/react/ValorationSelect";
 
-const opinions = await actions.getLastOpinions();
+const { data } = await actions.getLastOpinions();
 
 const result = await Astro.getActionResult(actions.createOpinion);
 const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
@@ -13,8 +13,8 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
 <section class="section" style="padding-inline: 0">
     <h3>Reseñas de los Clientes</h3>
 
-    { opinions.data !== undefined && opinions.data.length > 0
-        ? <OpinionsList opinions={opinions?.data} />
+    { data !== undefined && data.length > 0
+        ? <OpinionsList opinions={data} />
         : <OpinionsZero/>
     }
 

@@ -1,5 +1,5 @@
 import { defineAction } from "astro:actions";
-import getRequest from "./helpers/getRequest";
+import { getRequest } from "./helpers/getRequest";
 import type { EventFromRequest } from "@/interfaces";
 
 export const getEvents = defineAction({

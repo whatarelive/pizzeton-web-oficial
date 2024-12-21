@@ -1,14 +1,10 @@
-import { z } from "astro:schema";
 import { defineAction } from "astro:actions";
-import getRequest from "./helpers/getRequest";
+import { getRequest } from "@/actions/helpers/getRequest";
+import { menuSchema } from "@/actions/validations/schemas";
 import type { Agregation, Product, Prominent } from "@/interfaces";
 
-const MenuSchema = z.object({
-    category: z.string()
-});
-
 export const getMenu = defineAction({
-    input: MenuSchema,
+    input: menuSchema,
     handler: async ({ category }) => {
         return await getRequest<Product>(`products/${category}`);
     }
