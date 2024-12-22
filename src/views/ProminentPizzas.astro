@@ -5,11 +5,11 @@ import ProductCard from "@/components/ProductCard.astro";
 import EmptyData from "@/components/EmptyData.astro";
 import Error from "@/components/Error.astro";
 
-const { data, error } = await actions.getProminentPizzas();
+const { data, error } = await Astro.callAction(actions.getProminentPizzas, {});
 ---
 
 <CardsLayout title="Pizzas Destacadas">
-    <div class="flex w-screen flex-col items-center gap-1">
+    <div class="flex w-screen flex-col items-center gap-1 px-6">
         <p slot="description" class="text-center max-w-screen-xl self-center">
             Explora nuestras pizzas destacadas, esta selección única que combina los sabores más clásicos 
             con opciones gourmet irresistibles. Preparadas con ingredientes frescos, masas crujientes y 

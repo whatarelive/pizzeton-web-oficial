@@ -51,6 +51,15 @@ export interface UserFromRequest {
     token: string;
 }
 
+export interface OpinionFromRequest {
+    user: {
+        name: string;
+    },
+    date: Date;
+    opinion: string;
+    valoration: number;
+}
+
 type UserRole = 'user' | 'dev' | 'admin' 
 
 export type ProductNoSub = Omit<Product, 'subtitle'>

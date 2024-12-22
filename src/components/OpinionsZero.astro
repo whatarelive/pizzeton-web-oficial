@@ -1,11 +1,17 @@
 ---
 import InfoLayout from "@/layouts/InfoLayout.astro";
-import ValorationRate from "@/components/ValorationRate.astro";
-
+import { FaStar } from "react-icons/fa6";
 ---
+
 <InfoLayout image="opinion" alt="Primera opinión">
     <p class="font-bold text-wrap text-center">
         "Vamos, sea el primer cliente en dar su opinión."
     </p>
-    <ValorationRate valoration={5} />
+    <ul class="inline-flex">
+        {[1, 2, 3, 4, 5].map(() => (
+            <li>
+                <FaStar className="w-6 h-6" color='#eab308'/>
+            </li>
+        ))}
+    </ul>
 </InfoLayout>

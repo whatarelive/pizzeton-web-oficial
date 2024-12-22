@@ -1,0 +1,50 @@
+---
+import { actions, isInputError } from "astro:actions";
+import ValorationSelect from "./react/ValorationSelect";
+
+const result = await Astro.getActionResult(actions.createOpinion);
+const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
+---
+
+<div class="flex flex-col items-center gap-4 bg-secondary rounded-xl w-full max-w-[300px] sm:max-w-[380px] md:max-w-[560px] px-2 py-6 md:px-6">
+    <h5 class="text-2xl font-semibold">
+        Deja tu Opinión
+    </h5>
+
+    <form method="post" action={ actions.createOpinion } class="form w-full">
+        <label title="Valoración" for="valoration" class="font-semibold ml-1">
+            Valoración
+        </label>
+        <ValorationSelect client:visible/>
+        { 
+            inputErrors.valoration && 
+                <p class="error">
+                    { inputErrors.valoration.join(', ') }
+                </p> 
+        }
+
+        <label title="Opinión" for="opinion" class="font-semibold ml-1">
+            Opinión
+        </label>
+        <textarea
+            name="opinion"
+            id="opinion"
+            placeholder="Opinión (150 carácteres)"
+            maxlength="150"
+            class="input h-24 w-full"
+            aria-describedby="error-opinion"
+            autocomplete="off"
+            required
+        />
+        {
+            inputErrors.opinion && 
+                <p id="error-opinion" class="error">
+                    {inputErrors.opinion.join(', ')}
+                </p>
+        }
+
+        <button type="submit" class="btn-submit mt-4">
+            Enviar Opinión
+        </button>
+    </form>
+</div>

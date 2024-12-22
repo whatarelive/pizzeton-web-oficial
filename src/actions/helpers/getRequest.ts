@@ -1,4 +1,5 @@
 import pizzetonApi from "@/api/pizzetonApi";
+import { isAxiosError } from "axios";
 
 export async function getRequest<T>(url: string) {
     try {
@@ -11,7 +12,10 @@ export async function getRequest<T>(url: string) {
         return data;
 
     } catch (error) {
-        console.log(`Error fetching ${url}.`, error); 
+        if (isAxiosError(error)) {
+            return error.response?.data;
+        }
+
         throw new Error(`Failed to fetch ${url}.`);
     }
 }

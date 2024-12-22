@@ -1,89 +1,33 @@
 ---
-import { actions, isInputError } from "astro:actions";
-import OpinionsList from "../components/OpinionsList.astro";
-import OpinionsZero from "../components/OpinionsZero.astro";
-import ValorationSelect from "@/components/react/ValorationSelect";
+import { actions } from "astro:actions";
+import { authStore } from "@/store/store";
+import CarouselOpinions from "@/components/react/CarouselOpinions";
+import OpinionsForm from "@/components/OpinionsForm.astro";
+import OpinionsZero from "@/components/OpinionsZero.astro";
+import Error from "@/components/Error.astro";
 
-const { data } = await actions.getLastOpinions();
-
-const result = await Astro.getActionResult(actions.createOpinion);
-const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
+const { session } = authStore.get();
+const { data, error } = await Astro.callAction(actions.getLastOpinions, {});
 ---
 
-<section class="section" style="padding-inline: 0">
+<section class="section items-center" style="padding-inline: 0">
     <h3>Reseñas de los Clientes</h3>
 
-    { data !== undefined && data.length > 0
-        ? <OpinionsList opinions={data} />
-        : <OpinionsZero/>
+    { !data || error 
+        ? <Error/> 
+        : data.length > 4
+            ? <CarouselOpinions opinions={data} client:visible />
+            : <OpinionsZero/>
     }
 
-    <div class="flex flex-col items-center gap-4">
-        <h5 class="text-xl font-semibold">
-            Deja tu Opinión
-        </h5>
-
-        <form method="post" action={ actions.createOpinion } class="form">
-            <label title="Nombre Completo" for="userName">
-                <input
-                    name="userName"
-                    id="userName"
-                    type="text"
-                    placeholder="Nombre Completo"
-                    class="input"
-                    aria-describedby="error-userName"
-                    autocomplete="off"
-                    required
-                />
-                { inputErrors.userName
-                    && <p id="error-userName" class="error">
-                            {inputErrors.userName.join(', ')}
-                       </p>
-                }
-            </label>
-            <label title="Número de Telefono" for="userEmail">
-                <input
-                    name="userEmail"
-                    id="userEmail"
-                    type="email"
-                    placeholder="Correo electronico"
-                    class="input"
-                    aria-describedby="error-userEmail"
-                    autocomplete="off"
-                    required
-                />
-                { inputErrors.phoneNumber
-                    && <p id="error-userEmail" class="error">
-                            {inputErrors.phoneNumber.join(', ')}
-                       </p>
-                }
-            </label>
-
-            <ValorationSelect client:visible/>
-            { inputErrors.valoration && <p class="error">{inputErrors.valoration.join(', ')}</p> }
-
-            <label title="Opinión" for="opinion">
-                <textarea
-                    name="opinion"
-                    id="opinion"
-                    placeholder="Opinión (150 carácteres)"
-                    maxlength="150"
-                    class="input h-24 w-full"
-                    aria-describedby="error-opinion"
-                    autocomplete="off"
-                    required
-                />
-                {
-                    inputErrors.opinion
-                        && <p id="error-opinion" class="error">
-                            {inputErrors.opinion.join(', ')}
-                        </p>
-                    }
-            </label>
-
-            <button type="submit" class="btn-submit">
-                Enviar Opinión
-            </button>
-        </form>
-    </div>
+    {
+        session 
+            ?   <OpinionsForm/>
+            :   <div class="flex flex-col size-edit md:flex-row items-center gap-4 p-4 bg-secondary rounded-lg">
+                    <p class="text-center">Para poder aportar tu opinión debes de registrate en nuestro sitio web e iniciar sesión.</p>
+                    <a href="/auth/login" class="btn w-full sm:max-w-[300px] md:max-w-max text-center">
+                        Iniciar Sesión
+                    </a>
+                </div>
+    }
 </section>

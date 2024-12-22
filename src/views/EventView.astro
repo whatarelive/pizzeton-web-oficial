@@ -5,7 +5,7 @@ import Error from "@/components/Error.astro";
 import EventCard from "@/components/EventCard.astro";
 import CardsLayout from "@/layouts/CardsLayout.astro";
 
-const { data, error } = await actions.getEvents();
+const { data, error } = await Astro.callAction(actions.getEvents, {});
 ---
 
 <CardsLayout id="eventos" title="Eventos Especiales" bgView="bg-thertiary"> 

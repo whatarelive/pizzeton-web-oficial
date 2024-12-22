@@ -28,7 +28,7 @@
 }
 
 .form {
-    @apply flex w-10/12 flex-col gap-3 p-3 md:w-7/12 lg:w-5/12 2xl:w-4/12
+    @apply flex flex-col gap-3 p-3
 }
 
 .input {
@@ -39,6 +39,10 @@
 
 .error {
     @apply font-bold text-orange-600 mt-1
+}
+
+.size-edit {
+    @apply w-full max-w-[280px] sm:max-w-[380px] md:max-w-[680px] lg:max-w-[840px]
 }
 
 h1, h2 {

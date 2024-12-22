@@ -10,11 +10,11 @@ const { product } = Astro.props;
 const { imgUrl, title, subtitle, price } = product;
 ---
 
-<article class="flex flex-col xs:min-h-80 max-w-64 xs:max-w-72 hover:shadow-lg lg:hover:animate-bouncing bg-secondary rounded-xl">
+<article class="flex flex-col xs:min-h-80 max-w-64 xs:max-w-72 hover:shadow-lg lg:hover:animate-scale bg-secondary rounded-xl">
     <img src={imgUrl} alt={`Imagen de la ${title}`} class="rounded-ss-xl rounded-se-xl"/>
     
     <div class="flex flex-col flex-1 justify-center items-center gap-2 p-3">
-        <h6>{title}</h6>
+        <h6 class="text-xl">{title}</h6>
         <p class="text-center">
             {subtitle}
         </p>

@@ -4,7 +4,7 @@ import type { EventFromRequest } from "@/interfaces";
 
 export const getEvents = defineAction({
     handler: async () => {
-        const events = await getRequest<EventFromRequest>('events');
+        const events = await getRequest<EventFromRequest>('events') as EventFromRequest[];
         
         return events.map(({imgUrl, title, subtitle}) => {
             return {
