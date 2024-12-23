@@ -12,7 +12,7 @@ export const getMenu = defineAction({
 
 export const getProminentPizzas = defineAction({
     handler: async () => {
-        const data = await getRequest<Prominent>('product/prominents?limit=4');
+        const data = await getRequest<Prominent>('product/prominents?limit=4') as Prominent[];
         
         return data.map(({ product }) => {
             return product
@@ -22,7 +22,7 @@ export const getProminentPizzas = defineAction({
 
 export const getAgregations = defineAction({
     handler: async () => {
-        const data = await getRequest<Agregation>('product/agregations');
+        const data = await getRequest<Agregation>('product/agregations') as Agregation[];
 
         return data.map(({ title, price }) => {
             return { title, price };
