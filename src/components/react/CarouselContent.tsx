@@ -10,9 +10,9 @@ export default function CarouselContent({ isDynamic, imgBorderColor, image, titl
     if (isDynamic) {
         return (
             <div className="flex flex-col gap-6 md:flex-row md:justify-center md:items-center lg:gap-12">
-                <img src={image} alt={`Image`}
+                <img src={image} loading="lazy" alt={`Image`}
                      className={`
-                        rounded-3xl h-64 md:w-[350px] md:border-[5px] lg:max-w-[488px] lg:min-w-[488px] 
+                        rounded-3xl object-cover h-64 md:w-[350px] md:border-[5px] lg:max-w-[488px] lg:min-w-[488px] 
                         lg:h-[350px] lg:border-[10px] ${imgBorderColor}`
                     }
                 />
@@ -44,7 +44,7 @@ export default function CarouselContent({ isDynamic, imgBorderColor, image, titl
                 </p>
             </div>
 
-            <img src={image} alt={`Image`}
+            <img src={image} alt={`Image`} loading="lazy"
                  className={`
                         rounded-3xl h-64 md:w-[350px] md:border-[5px] lg:max-w-[488px] lg:min-w-[488px] 
                         lg:h-[350px] lg:border-[10px] ${imgBorderColor}`

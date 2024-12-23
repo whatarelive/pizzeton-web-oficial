@@ -1,6 +1,26 @@
-<footer class="py-6 px-4 flex justify-center md:justify-start items-center bg-primary">
-    <a href="#home" class="flex gap-3 font-semibold text-2xl">
-        <img src="/svg/logo.svg" alt="Logo Pizzetón D'Guti"/>
+---
+import { FaWhatsapp, FaFacebook } from "react-icons/fa6";
+import { TbCircleLetterAFilled } from "react-icons/tb";
+---
+<footer class="py-6 px-4 flex flex-col md:flex-row gap-4 justify-center md:justify-between items-center bg-primary">
+    <a href="#home" class="flex flex-col md:flex-row gap-3 items-center font-semibold text-2xl">
+        <img src="/svg/logo.svg" loading="lazy" alt="Logo Pizzetón D'Guti" class="w-32 md:w-auto"/>
         Pizzeton D'Guti
     </a>
+    <div class="flex flex-col md:flex-row items-center gap-4">
+        <h6 class="font-semibold text-xl md:hidden">
+            Redes Sociales
+        </h6>
+        <div class="flex items-center gap-4">
+            <a href="https://chat.whatsapp.com/D4hVV6ZRopcFgfPOtlV1w3" target="_blank">
+                <FaWhatsapp size={"36"}/>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61564861702553" target="_blank">
+                <FaFacebook size={"32"}/>
+            </a>
+            <a href="https://www.alamesacuba.com/en/la-habana/restaurant/el-pizzeton-d-guti/" target="_blank">
+                <TbCircleLetterAFilled size={"40"}/>
+            </a>
+        </div>
+    </div>
 </footer>

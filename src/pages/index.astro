@@ -55,26 +55,28 @@ const photos = ['/pizzeria2.jpeg', '/pizzeria1.jpeg', '/pizzeria3.jpeg'];
 		<CardsLayout id="ubicación" title="Ubicación">
 			<iframe 
 				src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d1982.6530520228068!2d-82.27098858416873!3d23.128473033603456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e0!4m0!4m3!3m2!1d23.1285986!2d-82.2704456!5e0!3m2!1sen!2scu!4v1733959342775!5m2!1sen!2scu" 
-				class="min-w-[272px] min-h-[272px] md:max-w-[300px] md:max-h-[300px] lg:min-w-[440px] lg:min-h-[340px] rounded-xl z-0"
+				class="w-full max-w-[272px] min-h-[272px] xs:max-w-[380px] xs:min-h-[300px] md:max-h-[272px] md:max-w-[300px] lg:min-w-[440px] lg:min-h-[340px] rounded-xl z-0"
 				allowfullscreen 
+				title="Ubicación del Pizzeton D'Guti"
 				loading="lazy" 
 				style={{ border: 0 }}   
 				referrerpolicy="no-referrer-when-downgrade">
 			</iframe>
 
-			<div class="flex flex-col md:max-w-[320px] lg:max-w-[440px] self-center gap-3">
+			<ul class="flex flex-col md:max-w-[290px] lg:max-w-[440px] self-center gap-3">
 				{
 					ubicationViewData.map(({label, description}) => (
-						<p>
+						<li>
 							<b class="text-white text-opacity-100">
 								{ label }
 							</b>
-							<br/>
-							{ description }
-						</p>
+							<p>
+								{ description }
+							</p>
+						</li>
 					))
 				}
-			</div>
+			</ul>
 		</CardsLayout>
 
 		<InfoView/>

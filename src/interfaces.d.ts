@@ -17,7 +17,6 @@ export interface TeamMember {
     img: string;
     name: string;
     position: string;
-    bio: string;
 }
 
 export interface Opinion {

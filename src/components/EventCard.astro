@@ -12,7 +12,7 @@ const { imgUrl, title, subtitle } = event;
 <article class="flex flex-col-reverse max-w-64 xs:max-w-72 bg-base rounded-xl 
     xl:flex-row-reverse xl:max-w-[550px] lg:hover:animate-scale"
 >
-    <img src={imgUrl} alt={`Imagen de la ${title}`} 
+    <img src={imgUrl} alt={`Imagen de la ${title}`} loading="lazy"
         class="rounded-es-xl rounded-ee-xl h-36 lg:h-40 lg:rounded-es-none lg:rounded-se-xl"
     />
     
