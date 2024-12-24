@@ -19,8 +19,21 @@ export const register = defineAction({
     }
 });
 
-export const logOut = defineAction({
+export const checkToken = defineAction({
     handler: async () => {
-        authStore.set({ session: null });
+        const { session } = authStore.get();
+        if (!session) return null;
+
+        // Calculo para comprobar el tiempo de vida del jwt.
+        const timeNow = new Date().getTime();
+        const tokenLifeTime = 12 * 60 * 60 * 1000; // 12 horas en milisegundos
+        const isValid = (timeNow - session.date) < tokenLifeTime;
+
+        if (!isValid) {
+            authStore.set({ session: null });
+            return null;
+        } 
+            
+        return session;
     }
 });

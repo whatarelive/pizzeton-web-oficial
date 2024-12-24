@@ -34,7 +34,12 @@ export interface MenuStore {
 }
 
 export interface AuthStore {
-    session: Omit<UserFromRequest, 'role' | 'email'> | null;
+    session: {
+        name: string;
+        isBaned: boolean;
+        token: string;
+        date: number
+    } | null;
 }
 
 export interface EventFromRequest extends Omit<Product, 'price'> {

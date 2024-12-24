@@ -2,7 +2,7 @@ import { getChange } from '@/actions/scraping';
 import { getAgregations, getMenu, getProminentPizzas } from "@/actions/menu";
 import { createOpinion, getLastOpinions } from "@/actions/opinion";
 import { getEvents } from './event';
-import { logOut, register, singIn } from './auth';
+import { checkToken, register, singIn } from './auth';
 
 export const server = {
     createOpinion,
@@ -14,5 +14,5 @@ export const server = {
     getEvents,
     singIn,
     register,
-    logOut
+    checkToken
 }

@@ -11,7 +11,10 @@ export async function postRequest(url: string, body: any) {
 
         authStore.set({ 
             session: {
-                name, isBaned, token
+                name, 
+                isBaned, 
+                token, 
+                date: new Date().getTime(),
             },
         });
         

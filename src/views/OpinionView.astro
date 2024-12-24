@@ -1,12 +1,11 @@
 ---
 import { actions } from "astro:actions";
-import { authStore } from "@/store/store";
 import CarouselOpinions from "@/components/react/CarouselOpinions";
 import OpinionsForm from "@/components/OpinionsForm.astro";
 import OpinionsZero from "@/components/OpinionsZero.astro";
 import Error from "@/components/Error.astro";
 
-const { session } = authStore.get();
+const session = await Astro.callAction(actions.checkToken, {});
 const { data, error } = await Astro.callAction(actions.getLastOpinions, {});
 ---
 
