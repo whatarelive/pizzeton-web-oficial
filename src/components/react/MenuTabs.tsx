@@ -13,6 +13,7 @@ export default function MenuTabs({ selectTab, handleClick }: Props) {
                 <button 
                     key={label} 
                     onClick={handleClick}
+                    aria-label="Cambiar la categoria de productos del menú"
                     className={`
                         rounded-lg px-2 py-1 text-sm sm:text-subtitle font-semibold
                         ${selectTab === label ? 'text-primary bg-white' : 'text-white text-opacity-80'}

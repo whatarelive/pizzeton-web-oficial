@@ -21,12 +21,20 @@ export default function Carousel({ isDynamic, array }: Props) {
           />
 
           <div className="flex justify-around md:justify-center md:gap-24">
-              <button className={`rounded-full p-2 ${ isDynamic ? "bg-secondary" : "bg-base" }`} onClick={previusSlide}>
+                <button 
+                    aria-label="Mostrar el elemento anterior del carousel"
+                    className={`rounded-full p-2 ${ isDynamic ? "bg-secondary" : "bg-base" }`} 
+                    onClick={previusSlide}
+                >
                   <FaArrowLeft color="#ffffff"/>
               </button>
-              <button className={`rounded-full p-2 ${ isDynamic ? "bg-secondary" : "bg-base" }`} onClick={nextSlide}>
+                <button
+                    aria-label="Mostrar el siguiente elemento del carousel"
+                    className={`rounded-full p-2 ${ isDynamic ? "bg-secondary" : "bg-base" }`} 
+                    onClick={nextSlide}
+                >
                   <FaArrowRight color="#ffffff"/>
-              </button>
+                </button>
           </div>
       </>
   )

@@ -18,9 +18,9 @@ export default function CarouselContent({ isDynamic, imgBorderColor, image, titl
                 />
 
                 <div className="flex flex-col gap-2 md:w-[350px] lg:w-[488px] lg:gap-6">
-                    <h6 className="lg:text-2xl">
+                    <h3 className="text-start font-semibold text-lg lg:text-2xl">
                         {title}
-                    </h6>
+                    </h3>
                     <p>
                         {description}
                     </p>
@@ -32,9 +32,9 @@ export default function CarouselContent({ isDynamic, imgBorderColor, image, titl
     return (
         <div className="flex flex-col gap-6 md:flex-row md:justify-center md:items-center lg:gap-12">
             <div className="flex flex-col gap-2 md:w-[350px] lg:w-[488px] lg:gap-6">
-                <h6 className="lg:text-2xl">
+                <h3 className="text-start font-semibold text-lg lg:text-2xl">
                     Interior del restaurante
-                </h6>
+                </h3>
                 <p>
                     El cálido y acogedor interior de la pizzería está decorado con detalles rústicos que
                     evocan una atmósfera auténtica y familiar, mientras que una suave luz amarilla ilumina
@@ -47,7 +47,7 @@ export default function CarouselContent({ isDynamic, imgBorderColor, image, titl
             <img src={image} alt={`Image`} loading="lazy"
                  className={`
                         rounded-3xl h-64 md:w-[350px] md:border-[5px] lg:max-w-[488px] lg:min-w-[488px] 
-                        lg:h-[350px] lg:border-[10px] ${imgBorderColor}`
+                        lg:h-[350px] lg:border-[10px] object-cover ${imgBorderColor}`
                  }
             />
         </div>
