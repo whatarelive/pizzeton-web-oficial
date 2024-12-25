@@ -23,14 +23,14 @@ export default function Carousel({ isDynamic, array }: Props) {
           <div className="flex justify-around md:justify-center md:gap-24">
                 <button 
                     aria-label="Mostrar el elemento anterior del carousel"
-                    className={`rounded-full p-2 ${ isDynamic ? "bg-secondary" : "bg-base" }`} 
+                    className={`rounded-full p-2 ${ isDynamic ? "bg-secondary" : "bg-base" } hover:bg-amber-500 hover:animate-scale`} 
                     onClick={previusSlide}
                 >
                   <FaArrowLeft color="#ffffff"/>
               </button>
                 <button
                     aria-label="Mostrar el siguiente elemento del carousel"
-                    className={`rounded-full p-2 ${ isDynamic ? "bg-secondary" : "bg-base" }`} 
+                    className={`rounded-full p-2 ${ isDynamic ? "bg-secondary" : "bg-base" } hover:bg-amber-500 hover:animate-scale`} 
                     onClick={nextSlide}
                 >
                   <FaArrowRight color="#ffffff"/>

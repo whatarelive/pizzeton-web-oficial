@@ -1,19 +1,19 @@
 import type { TeamMember } from "@/interfaces";
 
 export const team: TeamMember[] = [{
-    img: "/Shape.png",
-    name: "Elena Gómez",
-    position: "Propietaria",
+    img: "/images/Shape.jpg",
+    name: "Kely Matos",
+    position: "Chef principal",
 },
 {
-    img: "/deb.png",
+    img: "/images/deb.png",
     name: "Debren Gutierrez",
     position: "Propietario",
 },
 {
-    img: "/Shape.png",
-    name: "Marco Bianchi",
-    position: "Chef Principal",
+    img: "/images/Shape.jpg",
+    name: "Elizabeth Matos",
+    position: "Empleada",
 }];
 
 export const especialities = [{
@@ -32,7 +32,7 @@ export const especialities = [{
     description: 'Descubre la auténtica Pizza de Jamón Serrano, una delicia gourmet que combina la suavidad de la masa artesanal, la frescura de nuestro tomate natural, el queso fundido y el exquisito sabor del jamón serrano de primera calidad. Perfecta para los amantes de los ingredientes premium, esta pizza es ideal para disfrutar en familia, con amigos o en una cena especial.'
 },
 {
-    img: '/images/pizza_vegetariana.jpeg',
+    img: '/images/pizza_vegetariana.jpg',
     title: 'Pizza Vegetariana',
     description: 'Disfruta de nuestra deliciosa Pizza Vegetariana, una explosión de sabores frescos y naturales. Preparada con una crujiente base artesanal, cubierta con los mejores ingredientes: tomates frescos, pimientos, champiñones, cebolla y un toque de queso derretido. Ideal para amantes de la comida saludable y deliciosa.'
 },
@@ -58,3 +58,5 @@ export const ubicationViewData = [{
     label: "Horario:",
     description: "Abierto todos los días: 11:00 - 22:00"
 }];
+
+export const photos = ['/images/pizzeria1.jpeg', '/images/pizzeria2.jpeg', '/images/pizzeria3.jpeg', '/images/pizzeria4.jpeg', '/images/pizzeria5.jpeg'];

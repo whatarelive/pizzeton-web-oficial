@@ -19,8 +19,8 @@
 }
 
 .btn {
-    @apply px-1.5 py-1.5 md:px-3 md:py-2 rounded-lg bg-white text-black font-medium border-2
-    hover:animate-scale hover:shadow-2xl hover:bg-[#1E1E1E] hover:bg-opacity-85 hover:text-white hover:border-gray-300
+    @apply px-1.5 py-1.5 md:px-3 md:py-2 rounded-lg bg-white text-black font-medium
+    hover:animate-scale hover:bg-amber-500 hover:bg-opacity-85 hover:text-white
 }
 
 .btn-submit {
@@ -63,3 +63,16 @@ p {
     @apply text-white text-opacity-70 text-sm text-wrap
     sm:text-subtitle
 }
+
+.loader {
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
