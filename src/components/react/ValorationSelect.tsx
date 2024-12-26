@@ -11,7 +11,7 @@ export default function ValorationSelect() {
 
   return (
     <div className="pr-3 pl-1 focus-within:outline-none focus-within:ring-2 focus-within:ring-amber-500 bg-primary rounded-lg">
-        <select id="valoration" name="valoration" value={value} onChange={handleChange}
+        <select id="valoration" name="valoration" value={value} onChange={handleChange} aria-label="Seleccionar Valoración"
             className={`w-full pl-2 py-3 focus:outline-none bg-primary ${
                 value === 'placeHolder' ? 'text-slate-300 text-opacity-80' : 'text-white text-opacity-100'
             }`} 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow:
+Sitemap: https://pizzeton-web-oficial.vercel.app/sitemap.xml

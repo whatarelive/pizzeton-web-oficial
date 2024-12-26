@@ -29,7 +29,12 @@ export default function ChangeSelect({ isHidden }: Props) {
         Moneda
       </label>
       
-      <select id={id} onChange={onChange} className="w-20 xl:w-24 p-1.5 rounded-md ring-base ring-1 bg-primary text-white font-medium">
+      <select 
+        id={id} 
+        onChange={onChange} 
+        aria-label="Seleccionar tipo de moneda"
+        className="w-20 xl:w-24 p-1.5 rounded-md ring-base ring-1 bg-primary text-white font-medium"
+      >
         {MONEDA_VALUES.map(op => (
           <option key={op} value={op} className={`${op === moneda && 'hidden'} font-medium`}>
             {op}
