@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const url = import.meta.env.API_URL;
+
 const pizzetonApi = axios.create({
-    baseURL: 'https://military-gianna-pizzetondguti-6a3d8d19.koyeb.app/api/',
+    baseURL: url
 });
 
 export default pizzetonApi;

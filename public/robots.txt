@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Disallow:
-Sitemap: https://pizzeton-web-oficial.vercel.app/sitemap.xml
+Host: https://pizzetondguti.vercel.app
+Sitemap: https://pizzetondguti.vercel.app/sitemap.xml
