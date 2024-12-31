@@ -1,0 +1,59 @@
+---
+import ProductPrice from "@/components/react/ProductPrice";
+
+const content = ['2x Pizzas de Jamón Serrano', '1X Botella de Sidra', '1x Botella Parranda 1.5 LTS', '1x Turrón Blando'];
+---
+
+<section id="promociones" class="section bg-thertiary">
+    <h3>Promociones Especiales</h3>
+    
+    <article class="flex flex-col md:flex-row gap-6 md:gap-12 justify-center self-center items-center max-w-[1280px]">
+        <div class="md:w-[370px] lg:w-[400px] rounded-2xl border-8 border-base">
+            <img 
+                src="/images/combo_serrano.jpg" 
+                alt="Combo Serrano"
+                loading="lazy"
+                class="rounded-lg"
+            />
+        </div>
+    
+        <div class="flex flex-1 flex-col gap-6 justify-center">
+            <div>
+                <h4 class="text-md xs:text-xl lg:text-2xl">
+                    Combo Serrano de fin de año
+                </h4>
+
+                <p class="max-w-[500px] mt-1.5">
+                    ¿Buscas la mejor manera de despedir el año? En el Pizzeton D'Gutí, 
+                    tenemos la solución perfecta para ti. Prueba nuestro Combo Serrano de Fin de Año, 
+                    diseñado especialmente para compartir momentos inolvidables con tus seres queridos.
+                </p>
+            </div>
+            
+            <div>
+                <h5 class="md:text-lg font-semibold">
+                    Contenido del Combo
+                </h5>
+    
+                <ul class="mt-1.5">
+                    {
+                        content.map((content) => (
+                            <li class="mt-[2px]">
+                                <p>{content}</p>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+
+            <div class="inline-flex gap-4 items-center">
+                <h5 class="md:text-lg text-white font-semibold">
+                    Precio total
+                </h5>
+                <span class="py-1 px-2 rounded-lg bg-amber-600 font-semibold bg-opacity-70">
+                    <ProductPrice price={6150} client:visible/>
+                </span>
+            </div>
+        </div>
+    </article>
+</section>

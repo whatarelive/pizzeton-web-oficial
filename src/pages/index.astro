@@ -8,6 +8,7 @@ import MenuView from "@/views/MenuView.astro";
 import EventView from "@/views/EventView.astro";
 import OpinionView from "@/views/OpinionView.astro";
 import InfoView from "@/views/InfoView.astro";
+import PromotionsView from "@/views/PromotionsView.astro";
 
 import TeamCard from "@/components/TeamCard.astro";
 import Carousel from "@/components/react/Carousel";
@@ -31,9 +32,11 @@ import { team, ubicationViewData, especialities, photos } from "@/data/data";
 			<h3>Galería de Fotos</h3>
 			<Carousel isDynamic={false} array={photos} client:visible/>
 		</section>
-		
-		<ProminentPizzas/>
 
+		<ProminentPizzas/>
+		
+		<PromotionsView/>
+		
 		<MenuView/>
 
 		<EventView/>
