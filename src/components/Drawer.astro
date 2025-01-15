@@ -25,7 +25,7 @@ const { links } = Astro.props;
             {
                 links.map(link => (
                     <li class="max-w-fit font-semibold text-white text-opacity-70">
-                        <a href={`#${link.toLowerCase()}`}>
+                        <a href={`#${link.toLowerCase().replace(' ', '')}`}>
                             {link}
                         </a>
                     </li>
