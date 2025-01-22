@@ -1,9 +1,7 @@
 import { atom } from "nanostores";
-import type { AgregationsStore, AuthStore, MenuStore } from "@/interfaces";
+import type { AgregationsStore, MenuStore } from "@/interfaces";
 
 export const uiStore = atom({ modal: false });
-
-export const authStore = atom<AuthStore>({ session: null });
 
 export const changeStore = atom({ moneda:'CUP', value: 1 });
 

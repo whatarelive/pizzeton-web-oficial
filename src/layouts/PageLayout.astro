@@ -1,7 +1,9 @@
 ---
+import MetaSeo from "@/components/MetaSeo.astro";
+import NavBar from "@/components/NavBar.astro";
+import Footer from "@/components/Footer.astro";
 import "@fontsource-variable/inter";
 import "@/global.css";
-import MetaSeo from "@/components/MetaSeo.astro";
 ---
 
 <!doctype html>
@@ -10,7 +12,9 @@ import MetaSeo from "@/components/MetaSeo.astro";
 		<MetaSeo/>
 	</head>
 	<body>
-		<slot />
+		<NavBar/>
+		<slot/>
+		<Footer/>
 	</body>
 </html>
 <style>

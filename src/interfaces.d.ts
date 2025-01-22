@@ -20,7 +20,7 @@ export interface TeamMember {
 }
 
 export interface Opinion {
-    userName: string;
+    user: string;
     valoration: number;
     opinion: string;
 }
@@ -33,38 +33,17 @@ export interface MenuStore {
     categories: { tab: string, men: Product[] }[]
 }
 
-export interface AuthStore {
-    session: {
-        name: string;
-        isBaned: boolean;
-        token: string;
-        date: number
-    } | null;
-}
-
 export interface EventFromRequest extends Omit<Product, 'price'> {
     imgId: string;
     active: boolean;
 }
 
-export interface UserFromRequest {
-    name: string;
-    email: string;
-    role: UserRole;
-    isBaned: boolean;
-    token: string;
-}
-
 export interface OpinionFromRequest {
-    user: {
-        name: string;
-    },
+    user: string;
     date: Date;
     opinion: string;
     valoration: number;
 }
-
-type UserRole = 'user' | 'dev' | 'admin' 
 
 export type ProductNoSub = Omit<Product, 'subtitle'>
 export type Event = Omit<Product, 'price'>;

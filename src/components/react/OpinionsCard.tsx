@@ -2,9 +2,7 @@ import { FaStar } from "react-icons/fa6";
 
 interface Props {
     op: {
-        user: {
-            name: string, 
-        } 
+        user: string, 
         opinion: string, 
         valoration: number,
     }
@@ -27,7 +25,7 @@ export default function OpinionsCard({ op }: Props) {
         <p className="text-center">
             { opinion }
         </p>
-        <h6>{ user.name }</h6>    
+        <h6>{ user }</h6>    
     </div>
   )
 }

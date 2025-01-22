@@ -1,5 +1,5 @@
 ---
-import MainLayout from "@/layouts/MainLayout.astro";
+import PageLayout from "@/layouts/PageLayout.astro";
 import CardsLayout from "@/layouts/CardsLayout.astro";
 
 import HeroView from "@/views/HeroView.astro";
@@ -17,7 +17,7 @@ import AgregationsModal from "@/components/react/AgregationsModal";
 import { team, ubicationViewData, especialities, photos } from "@/data/data";
 ---
 
-<MainLayout>
+<PageLayout>
 	<main class="relative">
 		<AgregationsModal client:load/>
 		
@@ -82,4 +82,4 @@ import { team, ubicationViewData, especialities, photos } from "@/data/data";
 
 		<InfoView/>
 	</main>
-</MainLayout>
+</PageLayout>

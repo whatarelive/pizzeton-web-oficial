@@ -5,7 +5,6 @@ import OpinionsForm from "@/components/OpinionsForm.astro";
 import OpinionsZero from "@/components/OpinionsZero.astro";
 import Error from "@/components/Error.astro";
 
-const session = await Astro.callAction(actions.checkToken, {});
 const { data, error } = await Astro.callAction(actions.getLastOpinions, {});
 ---
 
@@ -18,15 +17,6 @@ const { data, error } = await Astro.callAction(actions.getLastOpinions, {});
             ? <CarouselOpinions opinions={data} client:visible />
             : <OpinionsZero/>
     }
-
-    {
-        session.data 
-            ?   <OpinionsForm/>
-            :   <div class="flex flex-col size-edit md:flex-row items-center gap-4 p-4 bg-secondary rounded-lg">
-                    <p class="text-center">Para poder aportar tu opinión debes de registrate en nuestro sitio web e iniciar sesión.</p>
-                    <a href="/auth/login" class="btn w-full sm:max-w-[300px] md:max-w-max text-center">
-                        Iniciar Sesión
-                    </a>
-                </div>
-    }
+    
+    <OpinionsForm/>
 </section>

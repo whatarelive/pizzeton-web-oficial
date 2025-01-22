@@ -12,6 +12,26 @@ const inputErrors = isInputError(result?.error) ? result?.error.fields : {};
     </h5>
 
     <form method="post" action={ actions.createOpinion } class="form w-full">
+        <label title="Nombre" for="user" class="font-semibold ml-1">
+            Nombre
+        </label>
+        <input 
+            name="user"
+            id="user"
+            type="text"
+            class="input w-full"
+            placeholder="Nombre completo"
+            aria-describedby="error-user"
+            autocomplete="off"
+            required
+        >
+        {
+            inputErrors.user && 
+                <p class="error">
+                    { inputErrors.user.join(', ') }
+                </p> 
+        }
+
         <label title="Valoración" for="valoration" class="font-semibold ml-1">
             Valoración
         </label>
