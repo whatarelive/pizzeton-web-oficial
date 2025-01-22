@@ -4,9 +4,7 @@ import OpinionsCard from '@/components/react/OpinionsCard';
 
 interface Props {
     opinions: {
-        user: {
-            name: string, 
-        } 
+        user:string, 
         opinion: string, 
         valoration: number,
     }[]
