@@ -6,7 +6,7 @@ import type { Agregation, Product, Prominent } from "@/interfaces";
 export const getMenu = defineAction({
     input: menuSchema,
     handler: async ({ category }) => {
-        return await getRequest<Product>(`products/${category}`);
+        return await getRequest<Product>(`products?category=${category}&field=price&order=asc&stock=${true}`);
     }
 })
 
