@@ -3,11 +3,11 @@ interface Props {
     handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const buttons = ['Pizzas', 'Pastas', 'Bebidas', 'Postres'];
+const buttons = ['Pizzas', 'Pastas', 'Bebidas', 'Postres', 'Otros'];
 
 export default function MenuTabs({ selectTab, handleClick }: Props) {
   return (
-    <div className="flex w-full max-w-screen-2xl justify-start gap-2">
+    <div className="container max-w-[320px] overflow-scroll flex w-full sm:max-w-screen-2xl justify-start gap-2">
         { 
             buttons.map(label => (
                 <button 
